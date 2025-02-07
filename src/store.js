@@ -22,7 +22,33 @@ const productSlice = createSlice({
             { name: "Garlic", price: 150.00, image: "/veg-items/Garlic.jpg" },
             { name: "Ginger", price: 200.80, image: "/veg-items/Ginger.jpg" },
             { name: "Cucumber", price: 30.00, image: "/veg-items/Cucumber.jpg" },
-            { name: "Lettuce", price: 55.90, image: "/veg-items/Lettuce.jpg" }
+            { name: "Lettuce", price: 55.90, image: "/veg-items/Lettuce.jpg" },
+            { name: "Arugula", price: 65.50, image: "/veg-items/Arugula.jpg" },
+            { name: "Asparagus", price: 140.00, image: "/veg-items/Asparagus.jpg" },
+            { name: "Artichoke", price: 150.80, image: "/veg-items/Artichoke.jpg" },
+            { name: "Beet Greens", price: 45.90, image: "/veg-items/BeetGreens.jpg" },
+            { name: "Bok Choy", price: 55.20, image: "/veg-items/BokChoy.jpg" },
+            { name: "Brussels Sprouts", price: 90.50, image: "/veg-items/BrusselsSprouts.jpg" },
+            { name: "Butternut Squash", price: 80.70, image: "/veg-items/ButternutSquash.jpg" },
+            { name: "Celery", price: 70.20, image: "/veg-items/Celery.jpg" },
+            { name: "Chard", price: 60.40, image: "/veg-items/Chard.jpg" },
+            { name: "Chayote", price: 45.90, image: "/veg-items/Chayote.jpg" },
+            { name: "Collard Greens", price: 75.00, image: "/veg-items/CollardGreens.jpg" },
+            { name: "Daikon Radish", price: 50.30, image: "/veg-items/DaikonRadish.jpg" },
+            { name: "Edamame", price: 85.90, image: "/veg-items/Edamame.jpg" },
+            { name: "Endive", price: 65.40, image: "/veg-items/Endive.jpg" },
+            { name: "Fennel", price: 70.30, image: "/veg-items/Fennel.jpg" },
+            { name: "Green Beans", price: 60.90, image: "/veg-items/GreenBeans.jpg" },
+            { name: "Jicama", price: 55.20, image: "/veg-items/Jicama.jpg" },
+            { name: "Kale", price: 80.00, image: "/veg-items/Kale.jpg" },
+            { name: "Kohlrabi", price: 50.80, image: "/veg-items/Kohlrabi.jpg" },
+            { name: "Leeks", price: 60.70, image: "/veg-items/Leeks.jpg" },
+            { name: "Mustard Greens", price: 40.50, image: "/veg-items/MustardGreens.jpg" },
+            { name: "Okra", price: 48.70, image: "/veg-items/Okra.jpg" },
+            { name: "Parsnips", price: 55.60, image: "/veg-items/Parsnips.jpg" },
+            { name: "Radicchio", price: 65.80, image: "/veg-items/Radicchio.jpg" },
+            { name: "Rutabaga", price: 50.20, image: "/veg-items/Rutabaga.jpg" },
+            { name: "Shallots", price: 70.40, image: "/veg-items/Shallots.jpg" }
         ],
         nonVegItems: [
             { name: "Chicken", price: 300.80, image: "/non-veg-items/chicken.jpg" },
@@ -36,21 +62,22 @@ const productSlice = createSlice({
             { name: "Octopus", price: 1100.10, image: "/non-veg-items/octopus.jpg" },
             { name: "Turkey", price: 400.40, image: "/non-veg-items/turkey.jpg" },
             { name: "Clams", price: 300.30, image: "/non-veg-items/clams.jpg" },
-            { name: "Shrimp", price: 450.75, image: "/non-veg-items/shrimp.jpg" }
+            { name: "Shrimp", price: 450.75, image: "/non-veg-items/shrimp.jpg" },
+            
         ],
-        dairyItems:[
-                { name: "Amul (Milk)", company: "Amul", price: 50.36, image: "/dairy-items/amul-mild.jpg" },
-                { name: "Dinshaw (Milk)", company: "Dinshaw", price: 250.99, image: "/dairy-items/dinshaw-milk.webp" },
-                { name: "Mother Dairy (Curd)", company: "Mother Dairy", price: 55.00, image: "/dairy-items/mother-dairy-curd.jpg" },
-                { name: "Britannia (Ghee)", company: "Britannia", price: 270.50, image: "/dairy-items/britannia-ghee.jpg" },
-                { name: "Nestle (Milk)", company: "Nestle", price: 100.45, image: "/dairy-items/nestle-milk.jpg" },
-                { name: "Amul (Butter)", company: "Amul", price: 200.00, image: "/dairy-items/amul-butter.jpg" },
-                { name: "Amul (Yogurt)", company: "Amul", price: 52.00, image: "/dairy-items/amul-yoghurt.jpg" },
-                { name: "Dinshaw (Paneer)", company: "Dinshaw", price: 249.50, image: "/dairy-items/dinshaw-panner.jpg" },
-                { name: "Mother Dairy (Ghee)", company: "Mother Dairy", price: 300.00, image: "/dairy-items/mother-dairy-ghee.jpg" },
-                { name: "Amul (Cheese)", company: "Amul", price: 199.99, image: "/dairy-items/amul-cheese.jpg" },
-                { name: "Amul (Ghee)", company: "Amul", price: 51.20, image: "/dairy-items/amul-ghee.jpg" }
-            ]
+        dairyItems: [
+            { name: "Amul (Milk)", company: "Amul", price: 50.36, image: "/dairy-items/amul-mild.jpg" },
+            { name: "Dinshaw (Milk)", company: "Dinshaw", price: 250.99, image: "/dairy-items/dinshaw-milk.webp" },
+            { name: "Mother Dairy (Curd)", company: "Mother Dairy", price: 55.00, image: "/dairy-items/mother-dairy-curd.jpg" },
+            { name: "Britannia (Ghee)", company: "Britannia", price: 270.50, image: "/dairy-items/britannia-ghee.jpg" },
+            { name: "Nestle (Milk)", company: "Nestle", price: 100.45, image: "/dairy-items/nestle-milk.jpg" },
+            { name: "Amul (Butter)", company: "Amul", price: 200.00, image: "/dairy-items/amul-butter.jpg" },
+            { name: "Amul (Yogurt)", company: "Amul", price: 52.00, image: "/dairy-items/amul-yoghurt.jpg" },
+            { name: "Dinshaw (Paneer)", company: "Dinshaw", price: 249.50, image: "/dairy-items/dinshaw-panner.jpg" },
+            { name: "Mother Dairy (Ghee)", company: "Mother Dairy", price: 300.00, image: "/dairy-items/mother-dairy-ghee.jpg" },
+            { name: "Amul (Cheese)", company: "Amul", price: 199.99, image: "/dairy-items/amul-cheese.jpg" },
+            { name: "Amul (Ghee)", company: "Amul", price: 51.20, image: "/dairy-items/amul-ghee.jpg" }
+        ]
     },
     reducers: {}
 });
@@ -67,33 +94,33 @@ const cartSlice = createSlice({
             } else {
                 state.push({ ...action.payload, quantity: 1 });
             }
-            localStorage.setItem("cart", JSON.stringify(state)); 
+            localStorage.setItem("cart", JSON.stringify(state));
         },
         increament: (state, action) => {
             const item = state.find(item => item.name === action.payload.name);
             if (item) {
                 item.quantity += 1;
             }
-            localStorage.setItem("cart", JSON.stringify(state)); 
+            localStorage.setItem("cart", JSON.stringify(state));
         },
         decreament: (state, action) => {
             const item = state.find(item => item.name === action.payload.name);
             if (item && item.quantity > 1) {
                 item.quantity -= 1;
-                localStorage.setItem("cart", JSON.stringify(state)); 
+                localStorage.setItem("cart", JSON.stringify(state));
             } else {
                 const updatedState = state.filter(item => item.name !== action.payload.name);
-                localStorage.setItem("cart", JSON.stringify(updatedState)); 
-                return updatedState; 
+                localStorage.setItem("cart", JSON.stringify(updatedState));
+                return updatedState;
             }
         },
         remove: (state, action) => {
             const updatedState = state.filter(item => item.name !== action.payload.name);
-            localStorage.setItem("cart", JSON.stringify(updatedState)); 
+            localStorage.setItem("cart", JSON.stringify(updatedState));
             return updatedState;
         },
         clearCart: () => {
-            localStorage.setItem("cart", JSON.stringify([])); 
+            localStorage.setItem("cart", JSON.stringify([]));
             return [];
         }
     }
@@ -103,12 +130,12 @@ const cartSlice = createSlice({
 const purchaseDetailsSlice = createSlice({
     name: "purchaseDetails",
     initialState: {
-        orderDetails: JSON.parse(localStorage.getItem("orderDetails") || "[]")  
+        orderDetails: JSON.parse(localStorage.getItem("orderDetails") || "[]")
     },
     reducers: {
         addToOrders(state, action) {
             state.orderDetails.push(action.payload);
-            localStorage.setItem("orderDetails", JSON.stringify(state.orderDetails));  
+            localStorage.setItem("orderDetails", JSON.stringify(state.orderDetails));
         },
     },
 });

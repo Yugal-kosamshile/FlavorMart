@@ -5,7 +5,8 @@ function ContactUs() {
     <div className="container d-flex justify-content-center align-items-center min-vh-100">
       <div className="col-md-5">
         <div className="card shadow-lg p-4 rounded-4 border-0">
-          <h1 className="text-center text-primary mb-3">Contact Us 📩</h1>
+          <h1 className="text-center text-primary mb-3">Contact Us 
+          <span className="floating">📩</span></h1>
           <p className="text-center text-muted">
             Have questions, feedback, or need assistance? Feel free to reach out to us! 
             Fill out the form below, and we’ll get back to you as soon as possible.

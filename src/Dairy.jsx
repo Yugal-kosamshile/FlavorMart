@@ -29,6 +29,7 @@ function Dairy() {
   const dairyItems = useSelector((state) => state.products.dairyItems);
   const dispatch = useDispatch();
 
+  // State for filters, search, and pagination
   const [filters, setFilters] = useState({
     Amul: false,
     Nestle: false,
@@ -36,19 +37,40 @@ function Dairy() {
     Dinshaw: false,
   });
 
-  const applyFilter = (companyName) =>
-    setFilters((prev) => ({ ...prev, [companyName]: !prev[companyName] }));
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
-  const filteredItems = dairyItems.filter((item) => {
-    const isFiltered = Object.keys(filters).some(
-      (company) => filters[company] && item.company === company
-    );
-    return isFiltered || Object.values(filters).every((val) => !val);
-  });
+  // Apply brand filter
+  const applyFilter = (brand) =>
+    setFilters((prev) => ({ ...prev, [brand]: !prev[brand] }));
+
+  // Handle search input
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+    setCurrentPage(1); // Reset to first page when searching
+  };
+
+  // Filtering items based on brand and search
+  const filteredItems = dairyItems
+    .filter((item) => {
+      const isFiltered = Object.keys(filters).some(
+        (brand) => filters[brand] && item.company === brand
+      );
+      return isFiltered || Object.values(filters).every((val) => !val);
+    })
+    .filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
+
+  // Pagination Logic
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
 
   return (
     <div className="container mt-4">
-      <h1 className="text-center text-primary fw-bold mb-4">Fresh Dairy Products 🥛</h1>
+      <h1 className="text-center text-primary fw-bold mb-4">Fresh Dairy Products 
+         <span className="floating">🥛</span></h1>
 
       {/* Carousel Section */}
       <div className="carousel-container mb-4">
@@ -61,10 +83,27 @@ function Dairy() {
         </Slider>
       </div>
 
-      {/* Filter Section */}
+      {/* Search Bar & Filters (Aligned in one line) */}
       <div className="card p-3 mb-4 shadow-lg">
-        <h5 className="text-center text-secondary">Filter by Brand</h5>
-        <div className="d-flex flex-wrap justify-content-center gap-3">
+        <h5 className="text-center text-secondary">Search & Filter by Brand</h5>
+
+        <div className="d-flex flex-wrap align-items-center justify-content-center gap-3">
+
+          {/* Search Bar */}
+          <div className="input-group" style={{ maxWidth: "250px" }}>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Search for dairy products..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+            <span className="input-group-text">
+              <i className="fa-solid fa-search"></i>
+            </span>
+          </div>
+
+          {/* Checkbox Filters */}
           {Object.keys(filters).map((brand) => (
             <div key={brand} className="form-check form-check-inline">
               <input
@@ -82,16 +121,17 @@ function Dairy() {
         </div>
       </div>
 
-      {/* Product Listing Section */}
+      {/* Product Listing */}
       <div className="row">
-        {filteredItems.length > 0 ? (
-          filteredItems.map((item, index) => (
-            <div className="col-lg-3 col-md-6 col-sm-12 mb-4" key={index}>
+        {currentItems.length > 0 ? (
+          currentItems.map((item, index) => (
+            <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={index}>
               <div className="card shadow-lg h-100">
                 <img
                   src={item.image}
                   alt={item.name}
                   className="card-img-top product-img p-4"
+                  style={{ height: "280px", objectFit: "cover" }}
                 />
                 <div className="card-body text-center">
                   <h6 className="card-title">{item.name}</h6>
@@ -104,9 +144,32 @@ function Dairy() {
             </div>
           ))
         ) : (
-          <p>No items available</p>
+          <h4 className="text-center text-danger">No items found!</h4>
         )}
-      </div> 
+      </div>
+
+      {/* Pagination */}
+      {filteredItems.length > itemsPerPage && (
+        <div className="d-flex justify-content-center mt-4">
+          <button
+            className="btn btn-outline-primary mx-2"
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+          >
+            ◀ Previous
+          </button>
+
+          <span className="align-self-center fw-bold text-primary">{`Page ${currentPage} of ${totalPages}`}</span>
+
+          <button
+            className="btn btn-outline-primary mx-2"
+            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+          >
+            Next ▶
+          </button>
+        </div>
+      )}
     </div>
   );
 }

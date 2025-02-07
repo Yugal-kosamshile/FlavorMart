@@ -14,11 +14,12 @@ import ContactUs from "./ContactUs";
 import Dairy from "./Dairy.jsx";
 import NotFound from "./NotFound.jsx";
 import SignIn from "./SignIn.jsx";
-import Footer from "./footer.jsx";
+import Footer from "./Footer.jsx";
 import "./App.css";
 
 
 function App() {
+
   const cart = useSelector((state) => state.cart || []);
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ function App() {
       <div className="d-flex flex-column min-vh-100">
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container">
+            {/* Brand Name */}
             <Link to="/home" className="navbar-brand fw-bold">
               QuickCart
               <img
@@ -46,11 +48,15 @@ function App() {
               />
             </Link>
 
+            {/* Navbar Toggler Button (Fix) */}
             <button
               className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
             >
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -60,43 +66,43 @@ function App() {
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
                   <Link to="/home" className="nav-link">
-                    Home
+                    <i className="fa-solid fa-home"></i> Home
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/veg" className="nav-link">
-                    Veg Items
+                    <i className="fa-solid fa-carrot"></i> Veg Items
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/nonVeg" className="nav-link">
-                    Non-Veg Items
+                    <i className="fa-solid fa-drumstick-bite"></i> Non-Veg Items
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/dairy" className="nav-link">
-                    Dairy Items
+                    <i className="fa-solid fa-cheese"></i> Dairy Items
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/cart" className="nav-link">
-                    Cart{" "}
+                    <i className="fa-solid fa-shopping-cart"></i> Cart{" "}
                     <span className="badge bg-danger">{totalItems}</span>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/orders" className="nav-link">
-                    Orders
+                    <i className="fa-solid fa-history"></i> Order History
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/aboutUs" className="nav-link">
-                    About Us
+                    <i className="fa-solid fa-info-circle"></i> About Us
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/contactUs" className="nav-link">
-                    Contact Us
+                    <i className="fa-solid fa-phone"></i> Contact Us
                   </Link>
                 </li>
 
@@ -109,16 +115,14 @@ function App() {
                     <button
                       className="btn btn-outline-light"
                       onClick={() => dispatch(logout())}
-                    >  Logout
-                      <img src="/logout.png" alt="logout button" className="ms-2" style={{ width: "25px" }} />
-
+                    >
+                      <i className="fa-solid fa-sign-out-alt"></i> Logout
                     </button>
                   </li>
                 ) : (
                   <li className="nav-item">
                     <Link to="/login" className="btn btn-outline-light">
-                      Sign In
-                      <img src="/login.png" alt="logout button" className="ms-2" style={{ width: "25px" }} />
+                      <i className="fa-solid fa-sign-in-alt"></i> Sign In
                     </Link>
                   </li>
                 )}

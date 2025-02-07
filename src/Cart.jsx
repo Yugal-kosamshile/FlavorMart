@@ -73,7 +73,8 @@ function Cart() {
     <div className="container mt-4">
       {cartObject.length > 0 ? (
         <div>
-          <h1 className="cart-title text-center fw-bold mb-4">Shopping Cart 🛒</h1>
+          <h1 className="cart-title text-center fw-bold mb-4">Shopping Cart  
+            <span className="rolling-cart">🛒</span></h1>
           <div className="row">
             <div className="col-lg-8">
               {cartItem}

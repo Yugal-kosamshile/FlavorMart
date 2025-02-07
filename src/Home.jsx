@@ -4,13 +4,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function Home() {
   return (
     <div className="container mt-5 text-center">
-        <h1 className="display-5 fw-bold text-primary">Welcome to My React Shopping Cart! 🛒</h1>
+        <h1 className="display-5 fw-bold text-primary">Welcome to My React Shopping Cart!
+        <span className="rolling-cart">🛒</span>
+
+        </h1>
         <p className="lead">
           Discover a seamless shopping experience with our fully functional cart, built using 
           <strong> React and Redux</strong>. Easily add, remove, and update items in real-time.
         </p>
         <hr className="my-4" />
-        <h2 className="fw-bold">🛍️ Start Shopping Now!</h2>
+        <h2 className="fw-bold">
+          <span className="moving-bag">🛍️</span>Start Shopping Now!</h2>
         <p>
           Explore our categories, add items to your cart, and enjoy a smooth shopping experience!
         </p>
@@ -20,7 +24,7 @@ function Home() {
           <div className="card shadow-lg">
           <Link to="/veg">  
         <img
-          src="/veg-items/vegetables1.jpg"
+          src="/veg-items/vege.gif"
           className="card-img-top"
           alt="Vegetables"
         />
@@ -40,7 +44,7 @@ function Home() {
           <div className="card shadow-lg">
             <Link to="/nonVeg">
             <img
-              src="/non-veg-items/nonveg.jpg"
+              src="/non-veg-items/nonveg.gif"
               className="card-img-top"
               alt="Non-Veg"
             />
@@ -60,7 +64,7 @@ function Home() {
           <div className="card shadow-lg">
             <Link to="/dairy">
             <img
-              src="/dairy-items/farm.png"
+              src="/dairy-items/dairy.gif"
               className="card-img-top"
               alt="Dairy"
             />
