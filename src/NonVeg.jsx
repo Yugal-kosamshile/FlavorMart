@@ -8,24 +8,24 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 function NonVeg() {
-  // const images = [
-  //   "/non-veg-items/non-veg1.jpg",
-  //   "/non-veg-items/non-veg2.jpg",
-  //   "/non-veg-items/non-veg3.jpg",
-  //   "/non-veg-items/non-veg4.jpg",
-  //   "/non-veg-items/non-veg5.jpg",
-  // ];
+  const images = [
+    "/non-veg-items/non-veg1.jpg",
+    "/non-veg-items/non-veg2.jpg",
+    "/non-veg-items/non-veg3.jpg",
+    "/non-veg-items/non-veg4.jpg",
+    "/non-veg-items/non-veg5.jpg",
+  ];
 
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   autoplay: true,
-  //   autoplaySpeed: 2000,
-  //   arrows: true,
-  // };
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    arrows: true,
+  };
 
   const nonVegItems = useSelector((state) => state.products.nonVegItems);
   const dispatch = useDispatch();
@@ -47,7 +47,7 @@ function NonVeg() {
     <div className="container mt-4"> 
       <h1 className="text-center text-danger fw-bold mb-4">Delicious Non-Veg Items 🍗</h1>
  
-      {/* <div className="carousel-container mb-4">
+      <div className="carousel-container mb-4">
   <Slider {...settings}>
     {images.map((image, index) => (
       <div key={index} className="d-flex justify-content-center">
@@ -59,7 +59,7 @@ function NonVeg() {
       </div>
     ))}
   </Slider>
-</div>  */}
+</div> 
 
 {/* <img src="/non-veg/fish.jpg" alt="" /> */}
 <div className="card p-3 mb-4 shadow-lg">
