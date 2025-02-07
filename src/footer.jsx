@@ -50,7 +50,7 @@ function Footer() {
         </div>
 
         <hr className="bg-light" />
-        <p className="mb-0">© {new Date().getFullYear()} QuickCart. All Rights Reserved.</p>
+        <p className="mb-0">© {new Date().getFullYear()} QuickCart. All Rights Reserved by ❤️YugalK.</p>
       </div>
     </footer>
   );
