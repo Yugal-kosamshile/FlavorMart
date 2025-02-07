@@ -1,0 +1,60 @@
+.carousel-img {
+  max-width: 60%;   
+  height: 250px;   
+  object-fit: cover; 
+  border-radius: 10px;
+} 
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid #007bff;  
+  transition: all 0.2s ease-in-out;
+} 
+.custom-checkbox:checked {
+  background-color: #007bff;  
+  border-color: #0056b3;  
+} 
+.custom-checkbox:hover {
+  cursor: pointer;
+  transform: scale(1.1);  
+} 
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+} 
+.form-check-label {
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+/*=========================*/
+.btn-outline-light {
+  border-color: #fff;  
+}
+
+.btn-outline-light:hover {
+  background-color: #71747a;  
+  border-color: #000000;  
+}
+
+.btn-outline-light:hover img {
+  opacity: 1 !important; 
+}
+
+.cart-title{
+  color: rgb(82, 83, 82);
+}
+/*=========================*/
+.product-img {
+  max-width: 100%;
+  height: auto;  
+  object-fit: cover;  
+  max-height: 250px;  
+}
+.buy-btn{
+  background-color: #ffc800;
+  color: black;
+  border-color: rgb(204, 157, 2);
+}
