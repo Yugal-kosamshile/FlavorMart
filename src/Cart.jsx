@@ -5,6 +5,7 @@ import { addToOrders, clearCart, decreament, increament, remove } from "./store"
 function Cart() { 
   const cartObject = useSelector(state => state.cart);
   const dispatch = useDispatch();
+
  const cartItem = cartObject.map((item, index) => (
     <div key={index} className="card mb-3 shadow-lg">
       <div className="row g-0"> 
@@ -80,6 +81,7 @@ function Cart() {
               {cartItem}
             </div>
           <div className="col-lg-4">
+            
   {/* Combined Total Price, Discount, Coupon and Final Amount Sections in One Div */}
   <div className="card p-3 mb-3 shadow-lg">
     <h4 className="text-success fw-bold">Total Price: ₹{totalPrice.toFixed(2)}</h4>

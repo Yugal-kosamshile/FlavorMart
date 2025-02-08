@@ -81,6 +81,25 @@ function Veg() {
     </div>
   );
 
+  const vegItemList = currentItems.map((item, index) => (
+    <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={index}>
+      <div className="card shadow-lg h-100">
+      <img
+          src={item.image}
+          alt={item.name}
+          className="card-img-top product-img p-4"
+          style={{ height: "280px", objectFit: "cover" }}
+        />
+        <div className="card-body text-center">
+          <h6 className="card-title">{item.name}</h6>
+          <p className="card-text text-success fw-bold">₹{item.price.toFixed(2)}</p>
+          <button className="btn btn-success w-100" onClick={() => dispatch(addToCart(item))}>
+            <i className="fas fa-shopping-cart"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  ))
 
   return (
     <div className="container mt-4">
@@ -167,25 +186,7 @@ function Veg() {
       {/* Product Listing */}
       <div className="row">
         {currentItems.length > 0 ? (
-          currentItems.map((item, index) => (
-            <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={index}>
-              <div className="card shadow-lg h-100">
-              <img
-                  src={item.image}
-                  alt={item.name}
-                  className="card-img-top product-img p-4"
-                  style={{ height: "280px", objectFit: "cover" }}
-                />
-                <div className="card-body text-center">
-                  <h6 className="card-title">{item.name}</h6>
-                  <p className="card-text text-success fw-bold">₹{item.price.toFixed(2)}</p>
-                  <button className="btn btn-success w-100" onClick={() => dispatch(addToCart(item))}>
-                    <i className="fas fa-shopping-cart"></i> Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))
+          vegItemList
         ) : (
           <h4 className="text-center text-danger">No items found!</h4>
         )}

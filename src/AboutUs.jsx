@@ -25,8 +25,7 @@ function AboutUs() {
             <p className="text-muted">
               Our goal is to build feature-rich applications that demonstrate the <strong>power of front-end development </strong>
               while providing an effortless shopping journey for users.
-            </p>
-
+            </p> 
             <hr className="my-4"/>
 
             {/* Unique Features Section */}
@@ -54,8 +53,7 @@ function AboutUs() {
                   </li>
                 </ul>
               </div>
-            </div>
-
+            </div> 
             <hr className="my-4"/>
 
             {/* Future Enhancements Section */}

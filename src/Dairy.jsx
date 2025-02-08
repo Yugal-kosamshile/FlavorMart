@@ -67,6 +67,41 @@ function Dairy() {
   const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
 
+  const checkbox = Object.keys(filters).map((brand) => (
+    <div key={brand} className="form-check form-check-inline">
+      <input
+        type="checkbox"
+        className="form-check-input custom-checkbox"
+        onChange={() => applyFilter(brand)}
+        checked={filters[brand]}
+        id={brand}
+      />
+      <label className="form-check-label fw-bold text-dark" htmlFor={brand}>
+        {brand}
+      </label>
+    </div>
+  ))
+
+  const dairyItemList = currentItems.map((item, index) => (
+    <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={index}>
+      <div className="card shadow-lg h-100">
+        <img
+          src={item.image}
+          alt={item.name}
+          className="card-img-top product-img p-4"
+          style={{ height: "280px", objectFit: "cover" }}
+        />
+        <div className="card-body text-center">
+          <h6 className="card-title">{item.name}</h6>
+          <p className="card-text text-primary fw-bold">₹{item.price.toFixed(2)}</p>
+          <button className="btn btn-primary w-100" onClick={() => dispatch(addToCart(item))}>
+            <i className="fas fa-shopping-cart"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  ));
+
   return (
     <div className="container mt-4">
       <h1 className="text-center text-primary fw-bold mb-4">Fresh Dairy Products 
@@ -104,45 +139,14 @@ function Dairy() {
           </div>
 
           {/* Checkbox Filters */}
-          {Object.keys(filters).map((brand) => (
-            <div key={brand} className="form-check form-check-inline">
-              <input
-                type="checkbox"
-                className="form-check-input custom-checkbox"
-                onChange={() => applyFilter(brand)}
-                checked={filters[brand]}
-                id={brand}
-              />
-              <label className="form-check-label fw-bold text-dark" htmlFor={brand}>
-                {brand}
-              </label>
-            </div>
-          ))}
+          {checkbox}
         </div>
       </div>
 
       {/* Product Listing */}
       <div className="row">
         {currentItems.length > 0 ? (
-          currentItems.map((item, index) => (
-            <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={index}>
-              <div className="card shadow-lg h-100">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="card-img-top product-img p-4"
-                  style={{ height: "280px", objectFit: "cover" }}
-                />
-                <div className="card-body text-center">
-                  <h6 className="card-title">{item.name}</h6>
-                  <p className="card-text text-primary fw-bold">₹{item.price.toFixed(2)}</p>
-                  <button className="btn btn-primary w-100" onClick={() => dispatch(addToCart(item))}>
-                    <i className="fas fa-shopping-cart"></i> Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))
+          dairyItemList
         ) : (
           <h4 className="text-center text-danger">No items found!</h4>
         )}
