@@ -32,7 +32,7 @@ function Veg() {
   const [filters, setFilters] = useState({ low: false, mid: false, high: false });
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 10;
 
   // Update filters on checkbox change
   const applyFilter = (range) => setFilters({ ...filters, [range]: !filters[range] });
@@ -59,30 +59,44 @@ function Veg() {
   const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
 
+  const handlePage = (page) => {
+    setCurrentPage(page);
+  };
+  
   const pagination = filteredItems.length > itemsPerPage && (
     <div className="d-flex justify-content-center mt-4 mb-3">
+  <button
+    className="btn btn-outline-success mx-2"
+    onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+    disabled={currentPage === 1}
+  >
+    ◀ Previous
+  </button>
+
+  <div className="btn-group">
+    {Array.from({ length: totalPages }, (_, index) => (
       <button
-        className="btn btn-outline-success mx-2"
-        onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-        disabled={currentPage === 1}
+        key={index}
+        className={`btn ${index === currentPage - 1 ? "btn-success" : "btn-outline-success"}`}
+        onClick={() => handlePage(index + 1)}
       >
-        ◀ Previous
+        {index + 1}
       </button>
+    ))}
+  </div>
 
-      <span className="align-self-center fw-bold text-success">{`Page ${currentPage} of ${totalPages}`}</span>
+  <button
+    className="btn btn-outline-success mx-2"
+    onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+    disabled={currentPage === totalPages}
+  >
+    Next ▶
+  </button>
+</div>
 
-      <button
-        className="btn btn-outline-success mx-2"
-        onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-        disabled={currentPage === totalPages}
-      >
-        Next ▶
-      </button>
-    </div>
-  );
-
+  ); 
   const vegItemList = currentItems.map((item, index) => (
-    <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={index}>
+    <div className="col-lg-2-5 col-md-4 col-sm-6 mb-4" key={index}>
       <div className="card shadow-lg h-100">
       <img
           src={item.image}

@@ -30,19 +30,13 @@
   cursor: pointer;
 }
 /*=========================*/
-.btn-outline-light {
-  border-color: #fff;  
+@media (min-width: 1200px) {
+  .col-lg-2-5 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
 }
-
-.btn-outline-light:hover {
-  background-color: #71747a;  
-  border-color: #000000;  
-}
-
-.btn-outline-light:hover img {
-  opacity: 1 !important; 
-}
-
+/*=========================*/
 .cart-title{
   color: rgb(82, 83, 82);
 }
@@ -58,7 +52,33 @@
   color: black;
   border-color: rgb(204, 157, 2);
 }
+/*=========================*/
+.text-pink {
+  color: #e83e8c !important;
+}
 
+.btn-pink {
+  background-color: #e83e8c !important;
+  border-color: #e83e8c !important;
+  color: white !important;
+}
+
+.btn-pink:hover {
+  background-color: #d63384 !important;
+  border-color: #d63384 !important;
+}
+
+.btn-outline-pink {
+  color: #e83e8c !important;
+  border-color: #e83e8c !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-pink:hover {
+  background-color: #e83e8c !important;
+  color: white !important;
+}
+/*=========================*/
 @keyframes bounceBag {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }

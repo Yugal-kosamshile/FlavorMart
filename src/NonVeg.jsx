@@ -33,7 +33,7 @@ function NonVeg() {
   // State for filters
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 10;
 
   const [filters, setFilters] = useState({ low: false, mid: false, high: false });
 
@@ -53,7 +53,7 @@ function NonVeg() {
     if (filters.high && item.price > 800 && item.price <= 1200) return true;
     return !filters.low && !filters.mid && !filters.high;
   })
-    .filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase()));  
+    .filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
   // Pagination Logic
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -61,20 +61,33 @@ function NonVeg() {
   const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
 
+  const handlePage = (page) => {
+    setCurrentPage(page);
+  };
+
   const pagination = filteredItems.length > itemsPerPage && (
     <div className="d-flex justify-content-center mt-4 mb-3">
       <button
-        className="btn btn-outline-success mx-2"
+        className="btn btn-outline-danger mx-2"
         onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
         disabled={currentPage === 1}
       >
         ◀ Previous
       </button>
 
-      <span className="align-self-center fw-bold text-success">{`Page ${currentPage} of ${totalPages}`}</span>
-
+      <div className="btn-group">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index}
+            className={`btn ${index + 1 === currentPage ? "btn-danger" : "btn-outline-danger"}`}
+            onClick={() => handlePage(index + 1)}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
       <button
-        className="btn btn-outline-success mx-2"
+        className="btn btn-outline-danger mx-2"
         onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
         disabled={currentPage === totalPages}
       >
@@ -84,13 +97,13 @@ function NonVeg() {
   );
 
   const nonVegItemsList = currentItems.map((item, index) => (
-    <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={index}>
+    <div className="col-lg-2-5 col-md-4 col-sm-6 mb-4" key={index}>
       <div className="card shadow-lg h-100">
-        <img src={item.image} alt={item.name} className="card-img-top product-img p-4 " style={{ height: "280px", objectFit: "cover"}} />
+        <img src={item.image} alt={item.name} className="card-img-top product-img p-4 " style={{ height: "280px", objectFit: "cover" }} />
         <div className="card-body text-center">
           <h6 className="card-title">{item.name}</h6>
-          <p className="card-text text-success fw-bold">₹{item.price.toFixed(2)}</p>
-          <button className="btn btn-success w-100" onClick={() => dispatch(addToCart(item))}>
+          <p className="card-text text-danger fw-bold">₹{item.price.toFixed(2)}</p>
+          <button className="btn btn-danger w-100" onClick={() => dispatch(addToCart(item))}>
             <i className="fas fa-shopping-cart"></i> Add to Cart
           </button>
         </div>
@@ -101,7 +114,7 @@ function NonVeg() {
   return (
     <div className="container mt-4">
       <h1 className="text-center text-danger fw-bold mb-4">Delicious Non-Veg Items
-      <span className="floating">🍗</span>
+        <span className="floating">🍗</span>
       </h1>
 
       <div className="carousel-container mb-4">
@@ -177,7 +190,7 @@ function NonVeg() {
 
         </div>
       </div>
- 
+
       {/* Product Listing */}
       <div className="row">
         {currentItems.length > 0 ? (

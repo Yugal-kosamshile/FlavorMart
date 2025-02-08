@@ -39,7 +39,7 @@ function Dairy() {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 10;
 
   // Apply brand filter
   const applyFilter = (brand) =>
@@ -82,8 +82,9 @@ function Dairy() {
     </div>
   ))
 
+
   const dairyItemList = currentItems.map((item, index) => (
-    <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={index}>
+    <div className="col-lg-2-5 col-md-4 col-sm-6 mb-4" key={index}>
       <div className="card shadow-lg h-100">
         <img
           src={item.image}
@@ -102,10 +103,14 @@ function Dairy() {
     </div>
   ));
 
+  const handlePage = (page) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div className="container mt-4">
-      <h1 className="text-center text-primary fw-bold mb-4">Fresh Dairy Products 
-         <span className="floating">🥛</span></h1>
+      <h1 className="text-center text-primary fw-bold mb-4">Fresh Dairy Products
+        <span className="floating">🥛</span></h1>
 
       {/* Carousel Section */}
       <div className="carousel-container mb-4">
@@ -163,8 +168,17 @@ function Dairy() {
             ◀ Previous
           </button>
 
-          <span className="align-self-center fw-bold text-primary">{`Page ${currentPage} of ${totalPages}`}</span>
-
+          <div className="btn-group">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                className={`btn ${index + 1 === currentPage ? "btn-primary" : "btn-outline-primary"}`}
+                onClick={() => handlePage(index + 1)}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
           <button
             className="btn btn-outline-primary mx-2"
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}

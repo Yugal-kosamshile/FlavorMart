@@ -13,9 +13,11 @@ import AboutUs from "./AboutUs";
 import ContactUs from "./ContactUs";
 import Dairy from "./Dairy.jsx";
 import NotFound from "./NotFound.jsx";
-import SignIn from "./SignIn.jsx"; 
+import SignIn from "./SignIn.jsx";
 import "./App.css";
 import MyFooter from "./MyFooter.jsx";
+import Cakes from "./Cakes.jsx";
+import { Dropdown } from "bootstrap";
 
 
 function App() {
@@ -32,6 +34,11 @@ function App() {
     }
   }, [isAuthenticated]);
 
+  useEffect(() => {
+    const dropdownElementList = document.querySelectorAll(".dropdown-toggle");
+    dropdownElementList.forEach((dropdown) => new Dropdown(dropdown));
+  }, []);
+
   return (
     <BrowserRouter>
       <div className="d-flex flex-column min-vh-100">
@@ -39,9 +46,9 @@ function App() {
           <div className="container">
             {/* Brand Name */}
             <Link to="/home" className="navbar-brand fw-bold">
-              QuickCart
+              Fresh & Feast
               <img
-                src="/shop.gif"
+                src="/basket.gif"
                 alt="Cart Icon"
                 className="ms-2"
                 style={{ width: "40px" }}
@@ -71,7 +78,7 @@ function App() {
                 </li>
                 <li className="nav-item">
                   <Link to="/veg" className="nav-link">
-                    <i className="fa-solid fa-carrot"></i> Veg Items
+                    <i className="fa-solid fa-carrot"></i> veggie
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -81,7 +88,12 @@ function App() {
                 </li>
                 <li className="nav-item">
                   <Link to="/dairy" className="nav-link">
-                    <i className="fa-solid fa-cheese"></i> Dairy Items
+                    <i className="fa-solid fa-cheese"></i> Dairy Products
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/cakes" className="nav-link">
+                    <i className="fa-solid fa-birthday-cake"></i> Cakes
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -108,16 +120,27 @@ function App() {
 
                 {/* Authentication */}
                 {isAuthenticated ? (
-                  <li className="nav-item">
-                    <span className="navbar-text me-2 text-white">
-                      Welcome, {user}!
-                    </span>
+                  <li className="nav-item dropdown">
                     <button
-                      className="btn btn-outline-light"
-                      onClick={() => dispatch(logout())}
+                      className="btn btn-outline-light dropdown-toggle"
+                      id="userDropdown"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
                     >
-                      <i className="fa-solid fa-sign-out-alt"></i> Logout
+                      <i className="fa-solid fa-user"></i> {user}
                     </button>
+                    <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                      {/* <li>
+        <Link className="dropdown-item" to="/profile">
+          <i className="fa-solid fa-user-circle"></i> Profile
+        </Link>
+      </li> */}
+                      <li>
+                        <button className="dropdown-item text-danger" onClick={() => dispatch(logout())}>
+                          <i className="fa-solid fa-sign-out-alt"></i> Logout
+                        </button>
+                      </li>
+                    </ul>
                   </li>
                 ) : (
                   <li className="nav-item">
@@ -126,6 +149,7 @@ function App() {
                     </Link>
                   </li>
                 )}
+
               </ul>
             </div>
           </div>
@@ -137,11 +161,12 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/veg" element={<Veg />} />
           <Route path="/nonVeg" element={<NonVeg />} />
+          <Route path="/cakes" element={<Cakes />} />
+          <Route path="/dairy" element={<Dairy />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contactUs" element={<ContactUs />} />
-          <Route path="/dairy" element={<Dairy />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/login" element={<SignIn />} />
         </Routes>
