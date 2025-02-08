@@ -159,7 +159,7 @@ function Dairy() {
 
       {/* Pagination */}
       {filteredItems.length > itemsPerPage && (
-        <div className="d-flex justify-content-center mt-4">
+        <div className="d-flex justify-content-center mt-4 mb-3">
           <button
             className="btn btn-outline-primary mx-2"
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
