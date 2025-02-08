@@ -53,11 +53,11 @@ function Cakes() {
     const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
     const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
 
-    
-  const handlePage = (page) => {
-    setCurrentPage(page);
-  };
-  
+
+    const handlePage = (page) => {
+        setCurrentPage(page);
+    };
+
     const pagination = filteredItems.length > itemsPerPage && (
         <div className="d-flex justify-content-center mt-4 mb-3">
             <button

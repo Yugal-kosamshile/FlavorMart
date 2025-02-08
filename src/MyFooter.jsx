@@ -26,19 +26,19 @@ function MyFooter() {
 
           {/* Social Media */}
           <div className="col-md-4">
-  <h5>Follow Us</h5>
-  <div className="m-4">
-    <a href="https://facebook.com" className="text-white mx-2">
-      <i className="fab fa-facebook fa-2x"></i> 
-    </a>
-    <a href="https://twitter.com" className="text-white mx-2">
-      <i className="fab fa-twitter fa-2x"></i>
-    </a>
-    <a href="https://instagram.com" className="text-white mx-2">
-      <i className="fab fa-instagram fa-2x"></i>
-    </a>
-  </div>
-</div>
+            <h5>Follow Us</h5>
+            <div className="m-4">
+              <a href="https://facebook.com" className="text-white mx-2">
+                <i className="fab fa-facebook fa-2x"></i>
+              </a>
+              <a href="https://twitter.com" className="text-white mx-2">
+                <i className="fab fa-twitter fa-2x"></i>
+              </a>
+              <a href="https://instagram.com" className="text-white mx-2">
+                <i className="fab fa-instagram fa-2x"></i>
+              </a>
+            </div>
+          </div>
 
 
           {/* Copyright */}

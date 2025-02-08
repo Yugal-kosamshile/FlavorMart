@@ -62,43 +62,43 @@ function Veg() {
   const handlePage = (page) => {
     setCurrentPage(page);
   };
-  
+
   const pagination = filteredItems.length > itemsPerPage && (
     <div className="d-flex justify-content-center mt-4 mb-3">
-  <button
-    className="btn btn-outline-success mx-2"
-    onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-    disabled={currentPage === 1}
-  >
-    ◀ Previous
-  </button>
-
-  <div className="btn-group">
-    {Array.from({ length: totalPages }, (_, index) => (
       <button
-        key={index}
-        className={`btn ${index === currentPage - 1 ? "btn-success" : "btn-outline-success"}`}
-        onClick={() => handlePage(index + 1)}
+        className="btn btn-outline-success mx-2"
+        onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+        disabled={currentPage === 1}
       >
-        {index + 1}
+        ◀ Previous
       </button>
-    ))}
-  </div>
 
-  <button
-    className="btn btn-outline-success mx-2"
-    onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-    disabled={currentPage === totalPages}
-  >
-    Next ▶
-  </button>
-</div>
+      <div className="btn-group">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index}
+            className={`btn ${index === currentPage - 1 ? "btn-success" : "btn-outline-success"}`}
+            onClick={() => handlePage(index + 1)}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
 
-  ); 
+      <button
+        className="btn btn-outline-success mx-2"
+        onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+        disabled={currentPage === totalPages}
+      >
+        Next ▶
+      </button>
+    </div>
+
+  );
   const vegItemList = currentItems.map((item, index) => (
     <div className="col-lg-2-5 col-md-4 col-sm-6 mb-4" key={index}>
       <div className="card shadow-lg h-100">
-      <img
+        <img
           src={item.image}
           alt={item.name}
           className="card-img-top product-img p-4"
@@ -117,8 +117,8 @@ function Veg() {
 
   return (
     <div className="container mt-4">
-      <h1 className="text-center text-success fw-bold mb-4">Fresh Vegetables 
-      <span className="floating">🥦</span>
+      <h1 className="text-center text-success fw-bold mb-4">Fresh Vegetables
+        <span className="floating">🥦</span>
       </h1>
 
       <div className="carousel-container mb-4">

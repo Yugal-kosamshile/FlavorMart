@@ -5,9 +5,9 @@ function Orders() {
 
   return (
     <div className="container mt-4">
-      <h1 className="text-center mb-4 fw-bold cart-title">  
-        Order History <i className="fa-solid fa-history floating"></i> 
-        </h1>
+      <h1 className="text-center mb-4 fw-bold cart-title">
+        Order History <i className="fa-solid fa-history floating"></i>
+      </h1>
       {orders.length > 0 ? (
         orders.map((order, index) => (
           <div key={index} className="card mb-4 shadow-sm">

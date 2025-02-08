@@ -46,7 +46,7 @@ function App() {
           <div className="container">
             {/* Brand Name */}
             <Link to="/home" className="navbar-brand fw-bold">
-              Fresh & Feast
+            FlavorMart
               <img
                 src="/basket.gif"
                 alt="Cart Icon"
@@ -78,7 +78,7 @@ function App() {
                 </li>
                 <li className="nav-item">
                   <Link to="/veg" className="nav-link">
-                    <i className="fa-solid fa-carrot"></i> veggie
+                    <i className="fa-solid fa-carrot"></i> Veggie
                   </Link>
                 </li>
                 <li className="nav-item">

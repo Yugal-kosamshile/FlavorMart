@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { login } from "./store.js"; 
+import { login } from "./store.js";
 
 function SignIn() {
   let username = useRef(null);
@@ -21,7 +21,7 @@ function SignIn() {
   };
 
   return (
-    <> 
+    <>
       <div
         className="d-flex justify-content-center align-items-center vh-100"
         style={{
@@ -85,5 +85,5 @@ function SignIn() {
       </div>
     </>
   );
-} 
+}
 export default SignIn; 
