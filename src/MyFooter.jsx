@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import 'font-awesome/css/font-awesome.min.css';
 
 
-function Footer() {
+function MyFooter() {
   return (
     <footer className="bg-dark text-white text-center py-4 mt-auto">
       <div className="container">
@@ -56,4 +56,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default MyFooter;

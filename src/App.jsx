@@ -13,9 +13,9 @@ import AboutUs from "./AboutUs";
 import ContactUs from "./ContactUs";
 import Dairy from "./Dairy.jsx";
 import NotFound from "./NotFound.jsx";
-import SignIn from "./SignIn.jsx";
-import Footer from "./Footer.jsx";
+import SignIn from "./SignIn.jsx"; 
 import "./App.css";
+import MyFooter from "./MyFooter.jsx";
 
 
 function App() {
@@ -146,7 +146,7 @@ function App() {
           <Route path="/login" element={<SignIn />} />
         </Routes>
 
-        <Footer />
+        <MyFooter />
       </div>
     </BrowserRouter>
   );
