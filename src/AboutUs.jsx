@@ -37,7 +37,7 @@ function AboutUs() {
           {/* Right Side - Image */}
           <div className="col-md-6 text-center">
             <img
-              src="/non-veg-items/nonveg.jpg"
+              src="/about.gif"
               alt="FlavorMart"
               className="img-fluid rounded-4 shadow-lg"
               style={{ borderRadius: '20px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)' }}
