@@ -11,7 +11,7 @@ function SignIn() {
   let navigate = useNavigate();
 
   const loginCheck = () => {
-    if (username.current.value === "yugal" && password.current.value === "Yugal@123") {
+    if (username.current.value === "Yugal" && password.current.value === "Yugal@123") {
       dispatch(login(username.current.value));
       localStorage.setItem("username", username.current.value);
       navigate("/home");
