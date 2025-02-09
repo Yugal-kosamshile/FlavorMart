@@ -160,7 +160,7 @@ function NonVeg() {
               id="low"
             />
             <label className="form-check-label fw-bold text-dark" htmlFor="low">
-              ₹0 - ₹100
+              ₹0 - ₹400
             </label>
           </div>
 
@@ -172,7 +172,7 @@ function NonVeg() {
               id="mid"
             />
             <label className="form-check-label fw-bold text-dark" htmlFor="mid">
-              ₹101 - ₹200
+              ₹401 - ₹800
             </label>
           </div>
 
@@ -184,7 +184,7 @@ function NonVeg() {
               id="high"
             />
             <label className="form-check-label fw-bold text-dark" htmlFor="high">
-              ₹201 - ₹300
+              ₹801 - ₹1200
             </label>
           </div>
 

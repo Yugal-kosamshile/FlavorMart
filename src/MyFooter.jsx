@@ -45,12 +45,12 @@ function MyFooter() {
           <div className="col-md-4 text-start">
             <h5>📞Contact : 123-456-7890</h5>
             <p className="mb-0">📍 123 Ameerpet, Hyderabad, Telangana, India.</p>
-            <p>📧 support@quickcart.com</p>
+            <p>📧 support@flavormart.com</p>
           </div>
         </div>
 
         <hr className="bg-light" />
-        <p className="mb-0">© {new Date().getFullYear()} QuickCart. All Rights are Reserved By ❤️YugalK.</p>
+        <p className="mb-0">© {new Date().getFullYear()} FlavorMart. All Rights are Reserved By ❤️YugalK.</p>
       </div>
     </footer>
   );

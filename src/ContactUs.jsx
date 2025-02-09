@@ -1,51 +1,43 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";  
 
 function ContactUs() {
   return (
-    <div className="container d-flex justify-content-center align-items-center min-vh-100">
-      <div className="col-md-5">
-        <div className="card shadow-lg p-4 rounded-4 border-0">
-          <h1 className="text-center text-primary mb-3">Contact Us
-            <span className="floating">📩</span></h1>
-          <p className="text-center text-muted">
-            Have questions, feedback, or need assistance? Feel free to reach out to us!
-            Fill out the form below, and we’ll get back to you as soon as possible.
-          </p>
+    <div className="container-fluid bg-dark text-white py-5">
+      <div className="container">
+        <h1 className="text-center mb-4" style={{ fontFamily: 'Great Vibes, cursive'}}>Contact Us</h1>
+        <h2 className="text-center">HOW TO GET IN TOUCH?</h2>
+        <p className="text-center text-muted">
+          We are always ready to assist you. Get in touch for queries, orders, or any support.
+        </p>
 
-          <form className="contact-form">
-            <div className="mb-3">
-              <label htmlFor="name" className="form-label">Name</label>
-              <input
-                type="text"
-                id="name"
-                className="form-control"
-                placeholder="Enter your name"
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email</label>
-              <input
-                type="email"
-                id="email"
-                className="form-control"
-                placeholder="Enter your email"
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="message" className="form-label">Message</label>
-              <textarea
-                id="message"
-                className="form-control"
-                rows="5"
-                placeholder="Enter your message"
-                required
-              ></textarea>
-            </div>
+        <div className="row align-items-center mt-5">
+          {/* Left Side - Contact Details */}
+          <div className="col-md-6">
+            <h4 className="text-uppercase">Address</h4>
+            <p>123 Ameerpet, Hyderabad, Telangana, India.</p>
+            <h4 className="text-uppercase">Phone Number</h4>
+            <p>+91 123-456-7890</p>
+            <h4 className="text-uppercase">Email Address</h4>
+            <p>support@flavormart.com</p>
 
-            <button type="submit" className="btn btn-primary w-100 fw-bold">Send Message</button>
-          </form>
+          </div>
+
+          {/* Right Side - Contact Form */}
+          <div className="col-md-6">
+            <form>
+              <div className="mb-3 d-flex gap-2">
+                <input type="text" className="form-control" placeholder="Your Name" />
+                <input type="email" className="form-control" placeholder="Your Email" />
+              </div>
+              <div className="mb-3">
+                <input type="text" className="form-control" placeholder="Subject" />
+              </div>
+              <div className="mb-3">
+                <textarea className="form-control" rows="4" placeholder="Message"></textarea>
+              </div>
+              <button className="btn btn-warning w-100">Book a Table</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

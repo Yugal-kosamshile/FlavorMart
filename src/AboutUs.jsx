@@ -1,94 +1,49 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
 
 function AboutUs() {
+  const [showMore, setShowMore] = useState(false);
+
   return (
-    <div className="container mt-5 mb-5">
-      <div className="row justify-content-center">
-        <div className="col-lg-10">
-          <div className="card shadow-lg p-5 rounded-4 border-0">
-            
-            {/* Heading */}
-            <h1 className="text-center text-primary fw-bold mb-4">
-              About Us <span className="moving-rocket">🚀</span>
-            </h1>
-
-            <p className="text-center lead text-muted">
-              Welcome to <strong>QuickCart</strong> – your go-to destination for a seamless and modern shopping experience.
+    <div className="container-fluid bg-dark text-white py-5 min-vh-100 d-flex align-items-center">
+      <div className="container">
+        <div className="row align-items-center">
+          {/* Left Side - Information */}
+          <div className="col-md-6 text-center text-md-start px-5">
+            <h2 className="fw-bold text-uppercase">About Us</h2>
+            <h1 className="display-5 fw-bold fst-italic">FlavorMart</h1>
+            <hr className="my-3 w-25 border-white" />
+            <p className="lead">
+              Your go-to destination for fresh vegetables, high-quality meat, dairy products, and delightful cakes.
             </p>
-
-            <hr className="my-4"/>
-
-            {/* Our Goal Section */}
-            <h2 className="text-secondary fw-bold mt-4">
-              <span className="pulsing-target">🎯</span> Our Mission
-            </h2>
-            <p className="text-muted">
-              Our goal is to build feature-rich applications that demonstrate the <strong>power of front-end development </strong>
-              while providing an effortless shopping journey for users.
-            </p> 
-            <hr className="my-4"/>
-
-            {/* Unique Features Section */}
-            <h2 className="text-secondary fw-bold mt-4">
-              <span className="glowing-bulb">💡</span> What Makes Us Special?
-            </h2>
-            <div className="row">
-              <div className="col-md-6">
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item border-0">
-                    <strong>🔥 React-Powered UI:</strong> Modular, reusable, and fast.
-                  </li>
-                  <li className="list-group-item border-0">
-                    <strong>⚡ Real-Time State Management:</strong> Redux for smooth updates.
-                  </li>
-                </ul>
-              </div>
-              <div className="col-md-6">
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item border-0">
-                    <strong>📱 Responsive Design:</strong> Optimized for all devices.
-                  </li>
-                  <li className="list-group-item border-0">
-                    <strong>🔐 Secure Authentication:</strong> User-friendly login system.
-                  </li>
-                </ul>
-              </div>
-            </div> 
-            <hr className="my-4"/>
-
-            {/* Future Enhancements Section */}
-            <h2 className="text-secondary fw-bold mt-4">
-              <span className="rotating-pin">📌</span> Future Enhancements
-            </h2>
-            <p className="text-muted">
-              We’re constantly working on new features to enhance your experience:
+            <p className="text-light">
+              Explore our diverse range of products, add them to your cart, and enjoy a seamless shopping experience.
             </p>
-            <div className="row">
-              <div className="col-md-4">
-                <div className="feature-box text-center p-3 border rounded bg-light">
-                  <h5>💳 Payment Integration</h5>
-                  <p className="text-muted small">Seamless and secure online transactions.</p>
-                </div>
+            <button className="btn btn-outline-light mt-3" onClick={() => setShowMore(!showMore)}>
+              {showMore ? "Show Less" : "Read More"}
+            </button>
+            {showMore && (
+              <div className="mt-3">
+                <p>
+                  At FlavorMart, we are committed to bringing you the freshest ingredients sourced directly from trusted farms. Our range includes organic vegetables, premium dairy products, and specially curated cakes that bring joy to every occasion. Whether you are looking for daily essentials or gourmet treats, we ensure quality and affordability in every purchase.
+                </p>
+                <p>
+                  Our seamless online shopping experience allows you to browse, select, and check out with ease, making grocery shopping hassle-free. Join us in our mission to deliver freshness and quality straight to your doorstep.
+                </p>
               </div>
-              <div className="col-md-4">
-                <div className="feature-box text-center p-3 border rounded bg-light">
-                  <h5>🚚 Order Tracking</h5>
-                  <p className="text-muted small">Real-time tracking of your purchases.</p>
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="feature-box text-center p-3 border rounded bg-light">
-                  <h5>🛍️ Personalized Recommendations</h5>
-                  <p className="text-muted small">AI-powered shopping suggestions.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Footer Note */}
-            <p className="text-center text-muted mt-4">
-              Stay tuned for updates and new features! 🚀
-            </p>
+            )}
           </div>
+
+          {/* Right Side - Image */}
+          <div className="col-md-6 text-center">
+            <img
+              src="/non-veg-items/nonveg.jpg"
+              alt="FlavorMart"
+              className="img-fluid rounded-4 shadow-lg"
+              style={{ borderRadius: '20px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)' }}
+            />
+          </div>
+
         </div>
       </div>
     </div>

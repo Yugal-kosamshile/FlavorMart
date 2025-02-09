@@ -45,7 +45,7 @@ function App() {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container">
             {/* Brand Name */}
-            <Link to="/home" className="navbar-brand fw-bold">
+            <Link to="/home" className="navbar-brand fw-bold fst-italic">
             FlavorMart
               <img
                 src="/basket.gif"
