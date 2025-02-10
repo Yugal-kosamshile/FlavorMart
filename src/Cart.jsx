@@ -7,12 +7,6 @@ function Cart() {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
-  useEffect(() => {
-    if (!isAuthenticated) {
-      dispatch(clearCart());
-    }
-  }, [isAuthenticated, dispatch]);
-
   const cartItem = cartObject.map((item, index) => (
     <div key={index} className="card mb-3 shadow-lg">
       <div className="row g-0">
@@ -65,6 +59,12 @@ function Cart() {
   const purachaseSec = now.getSeconds().toString().padStart(2, '0');
 
   const handlePurchaseDetails = () => {
+
+    if (!isAuthenticated) {
+      alert("First log in to complete your purchase.");
+      return;
+    }
+
     const purchaseDetails = {
       items: [...cartObject],
       totalAmount: finalAmount,

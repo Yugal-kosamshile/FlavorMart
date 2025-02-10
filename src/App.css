@@ -9,7 +9,6 @@ body {
   object-fit: cover;
   border-radius: 10px;
 }
-
 .custom-checkbox {
   width: 20px;
   height: 20px;
@@ -17,29 +16,24 @@ body {
   border: 2px solid #007bff;
   transition: all 0.2s ease-in-out;
 }
-
 .custom-checkbox:checked {
   background-color: #007bff;
   border-color: #0056b3;
 }
-
 .custom-checkbox:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
-
 .form-check {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-
 .form-check-label {
   font-size: 16px;
   color: #333;
   cursor: pointer;
 }
-
 /*=========================*/
 @media (min-width: 1200px) {
   .col-lg-2-5 {
@@ -47,12 +41,10 @@ body {
     max-width: 20%;
   }
 }
-
 /*=========================*/
 .cart-title {
   color: rgb(82, 83, 82);
 }
-
 /*=========================*/
 .product-img {
   max-width: 100%;
@@ -60,198 +52,148 @@ body {
   object-fit: cover;
   max-height: 250px;
 }
-
 .buy-btn {
   background-color: #ffc800;
   color: black;
   border-color: rgb(204, 157, 2);
 }
-
 /*=========================*/
 .text-pink {
   color: #e83e8c !important;
 }
-
 .btn-pink {
   background-color: #e83e8c !important;
   border-color: #e83e8c !important;
   color: white !important;
 }
-
 .btn-pink:hover {
   background-color: #d63384 !important;
   border-color: #d63384 !important;
 }
-
 .btn-outline-pink {
   color: #e83e8c !important;
   border-color: #e83e8c !important;
   background-color: transparent !important;
 }
-
 .btn-outline-pink:hover {
   background-color: #e83e8c !important;
   color: white !important;
 }
-
 /*=========================*/
 @keyframes bounceBag {
-
   0%,
   100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-10px);
   }
 }
-
 .moving-bag {
   display: inline-block;
   font-size: 2rem;
   animation: bounceBag 1s infinite ease-in-out;
 }
-
 /*=========================*/
 @keyframes rollCart {
   0% {
     transform: translateX(0) rotate(0deg);
   }
-
   50% {
     transform: translateX(15px) rotate(10deg);
   }
-
   100% {
     transform: translateX(0) rotate(0deg);
   }
 }
-
 .rolling-cart {
   display: inline-block;
   font-size: 2rem;
   animation: rollCart 1.5s infinite ease-in-out;
 }
-
 /*=========================*/
 @keyframes floatBroccoli {
   0% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-5px);
   }
-
   100% {
     transform: translateY(0);
   }
 }
-
 .floating {
   display: inline-block;
   font-size: 2rem;
   animation: floatBroccoli 1.5s infinite ease-in-out;
 }
-
 /*=========================*/
 @keyframes launchRocket {
   0% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-10px);
   }
-
   100% {
     transform: translateY(0);
   }
 }
-
 .moving-rocket {
   display: inline-block;
   font-size: 2rem;
   animation: launchRocket 1s infinite ease-in-out;
 }
-
 /*=========================*/
 @keyframes pulseTarget {
   0% {
     transform: scale(1);
   }
-
   50% {
     transform: scale(1.2);
   }
-
   100% {
     transform: scale(1);
   }
 }
-
 .pulsing-target {
   display: inline-block;
   font-size: 2rem;
   animation: pulseTarget 1s infinite ease-in-out;
 }
-
 /*=========================*/
 @keyframes glowBulb {
   0% {
     text-shadow: 0 0 5px #ffd700;
   }
-
   50% {
     text-shadow: 0 0 15px #ffd700, 0 0 30px #ffec8b;
   }
-
   100% {
     text-shadow: 0 0 5px #ffd700;
   }
 }
-
 .glowing-bulb {
   display: inline-block;
   font-size: 2rem;
   animation: glowBulb 1.5s infinite ease-in-out;
 }
-
 /*=========================*/
 @keyframes rotatePin {
   0% {
     transform: rotate(0deg);
   }
-
   50% {
     transform: rotate(10deg);
   }
-
   100% {
     transform: rotate(0deg);
   }
 }
-
 .rotating-pin {
   display: inline-block;
   font-size: 2rem;
   animation: rotatePin 1.5s infinite ease-in-out;
 }
-
 /*=========================*/
-.navbar-collapse {
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  overflow: hidden;
-  max-height: 500px;  
-}
-
-.navbar-collapse.collapsing {
-  max-height: 0;
-  opacity: 0;
-}
-
-.navbar-collapse.show {
-  max-height: 500px; 
-  opacity: 1;
-}

@@ -7,6 +7,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import Home from "./Home.jsx";
 import Veg from "./Veg";
 import NonVeg from "./NonVeg";
+import Cakes from "./Cakes.jsx";
 import Cart from "./Cart";
 import Orders from "./Orders";
 import AboutUs from "./AboutUs";
@@ -16,7 +17,6 @@ import NotFound from "./NotFound.jsx";
 import SignIn from "./SignIn.jsx";
 import "./App.css";
 import MyFooter from "./MyFooter.jsx";
-import Cakes from "./Cakes.jsx";
 import { Dropdown } from "bootstrap";
 
 
@@ -28,32 +28,30 @@ function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const user = useSelector((state) => state.auth.user);
 
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+
   useEffect(() => {
     if (!isAuthenticated) {
       localStorage.removeItem("username");
     }
   }, [isAuthenticated]);
 
-  useEffect(() => {
+  const toggleNavbar = () => {
+
     const dropdownElementList = document.querySelectorAll(".dropdown-toggle");
     dropdownElementList.forEach((dropdown) => new Dropdown(dropdown));
-  
-    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-    const navCollapse = document.querySelector(".navbar-collapse");
-  
-    navLinks.forEach(link => {
-      link.addEventListener("click", () => {
-        if (navCollapse.classList.contains("show")) {
-          navCollapse.style.maxHeight = navCollapse.scrollHeight + "px";
-          setTimeout(() => {
-            navCollapse.classList.remove("show");
-            navCollapse.style.maxHeight = "0";
-          }, 10); 
-        }
-      });
-    });
-  }, []);
-  
+
+    setIsNavOpen((prev) => !prev);
+    const navCollapse = document.getElementById("navbarNav");
+    if (navCollapse) {
+      if (isNavOpen) {
+        navCollapse.classList.remove("show");
+      } else {
+        navCollapse.classList.add("show");
+      }
+    }
+  };
 
   return (
     <BrowserRouter>
@@ -62,7 +60,7 @@ function App() {
           <div className="container">
             {/* Brand Name */}
             <Link to="/home" className="navbar-brand fw-bold fst-italic">
-            FlavorMart
+              FlavorMart
               <img
                 src="/basket.gif"
                 alt="Cart Icon"
@@ -75,14 +73,14 @@ function App() {
             <button
               className="navbar-toggler"
               type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
+              onClick={toggleNavbar}
               aria-controls="navbarNav"
-              aria-expanded="false"
+              aria-expanded={isNavOpen}
               aria-label="Toggle navigation"
             >
               <span className="navbar-toggler-icon"></span>
             </button>
+
 
             {/* Navbar Links */}
             <div className="collapse navbar-collapse" id="navbarNav">
@@ -146,7 +144,7 @@ function App() {
                       <i className="fa-solid fa-user"></i> {user}
                     </button>
                     <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                     
+
                       <li>
                         <button className="dropdown-item text-danger" onClick={() => dispatch(logout())}>
                           <i className="fa-solid fa-sign-out-alt"></i> Logout

@@ -19,11 +19,11 @@ function AboutUs() {
             <p className="text-light">
               Explore our diverse range of products, add them to your cart, and enjoy a seamless shopping experience.
             </p>
-            <button className="btn btn-outline-light mt-3" onClick={() => setShowMore(!showMore)}>
+            <button className="btn btn-outline-light mt-3 mb-3" onClick={() => setShowMore(!showMore)}>
               {showMore ? "Show Less" : "Read More"}
             </button>
             {showMore && (
-              <div className="mt-3">
+              <div className="mt-3 mb-3">
                 <p>
                   At FlavorMart, we are committed to bringing you the freshest ingredients sourced directly from trusted farms. Our range includes organic vegetables, premium dairy products, and specially curated cakes that bring joy to every occasion. Whether you are looking for daily essentials or gourmet treats, we ensure quality and affordability in every purchase.
                 </p>
