@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Home() {
+
   return (
     <div className="container mt-5 text-center">
       <h1 className="display-5 fw-bold text-primary">Welcome to My React Shopping Cart!
@@ -35,7 +36,7 @@ function Home() {
               <h5 className="card-title">Fresh Vegetables</h5>
               <p className="card-text">You can explore a variety of fresh and organic vegetables here.</p>
               <Link to="/veg" className="btn btn-success">
-                Visit Vegetables Section
+              Explore
               </Link>
             </div>
           </div>
@@ -56,7 +57,7 @@ function Home() {
               <h5 className="card-title">Quality Meat & Poultry</h5>
               <p className="card-text">Get fresh and hygienic non-veg products delivered to your home.</p>
               <Link to="/nonVeg" className="btn btn-danger">
-                Visit Non-Veg Items Section
+              Explore
               </Link>
             </div>
           </div>
@@ -77,7 +78,7 @@ function Home() {
               <h5 className="card-title">Dairy Products</h5>
               <p className="card-text">Get farm-fresh dairy products like milk, cheese, yogurt, and butter.</p>
               <Link to="/dairy" className="btn btn-primary">
-                Visit Dairy Products Section
+              Explore
               </Link>
             </div>
           </div>
@@ -98,7 +99,7 @@ function Home() {
               <h5 className="card-title">Delicious Cakes</h5>
               <p className="card-text">Indulge in a variety of freshly baked cakes, from chocolate to fruit flavors.</p>
               <Link to="/cakes" className="btn btn-pink">
-                Visit Cakes Section
+                Explore
               </Link>
             </div>
           </div>

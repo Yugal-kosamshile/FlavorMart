@@ -37,7 +37,23 @@ function App() {
   useEffect(() => {
     const dropdownElementList = document.querySelectorAll(".dropdown-toggle");
     dropdownElementList.forEach((dropdown) => new Dropdown(dropdown));
+  
+    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+    const navCollapse = document.querySelector(".navbar-collapse");
+  
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        if (navCollapse.classList.contains("show")) {
+          navCollapse.style.maxHeight = navCollapse.scrollHeight + "px";
+          setTimeout(() => {
+            navCollapse.classList.remove("show");
+            navCollapse.style.maxHeight = "0";
+          }, 10); 
+        }
+      });
+    });
   }, []);
+  
 
   return (
     <BrowserRouter>
@@ -130,11 +146,7 @@ function App() {
                       <i className="fa-solid fa-user"></i> {user}
                     </button>
                     <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                      {/* <li>
-        <Link className="dropdown-item" to="/profile">
-          <i className="fa-solid fa-user-circle"></i> Profile
-        </Link>
-      </li> */}
+                     
                       <li>
                         <button className="dropdown-item text-danger" onClick={() => dispatch(logout())}>
                           <i className="fa-solid fa-sign-out-alt"></i> Logout
