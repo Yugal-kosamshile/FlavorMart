@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToOrders, clearCart, decreament, increament, remove } from "./store";
 
 function Cart() {
   const cartObject = useSelector(state => state.cart);
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      dispatch(clearCart());
+    }
+  }, [isAuthenticated, dispatch]);
 
   const cartItem = cartObject.map((item, index) => (
     <div key={index} className="card mb-3 shadow-lg">
