@@ -25,7 +25,7 @@ function Home() {
           <div className="card shadow-lg">
             <Link to="/veg">
               <img
-                src="/veg-items/vege.gif"
+                src="/veg-items/vegetable.jpg"
                 className="card-img-top"
                 alt="Vegetables"
                 style={{ height: "250px", objectFit: "cover" }}
@@ -46,7 +46,7 @@ function Home() {
           <div className="card shadow-lg">
             <Link to="/nonVeg">
               <img
-                src="/non-veg-items/nonveg.gif"
+                src="/non-veg-items/nonveg.jpg"
                 className="card-img-top"
                 alt="Non-Veg"
                 style={{ height: "250px", objectFit: "cover" }}
@@ -67,7 +67,7 @@ function Home() {
           <div className="card shadow-lg">
             <Link to="/dairy">
               <img
-                src="/dairy-items/dairy.gif"
+                src="/dairy-items/farm.png"
                 className="card-img-top"
                 alt="Dairy"
                 style={{ height: "250px", objectFit: "cover" }}
@@ -88,7 +88,7 @@ function Home() {
           <div className="card shadow-lg">
             <Link to="/cakes">
               <img
-                src="/cake-items/cake.gif"
+                src="/cake-items/cake.jpg"
                 className="card-img-top"
                 alt="Cakes"
                 style={{ height: "250px", objectFit: "cover" }}
