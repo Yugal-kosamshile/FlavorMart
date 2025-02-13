@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import { useDispatch, useSelector } from "react-redux";
 import { addToOrders, clearCart, decreament, increament, remove } from "./store";
 
@@ -58,10 +59,12 @@ function Cart() {
   const purachaseMin = now.getMinutes().toString().padStart(2, '0');
   const purachaseSec = now.getSeconds().toString().padStart(2, '0');
 
+  const navigate = useNavigate(); 
   const handlePurchaseDetails = () => {
 
     if (!isAuthenticated) {
       alert("First log in to complete your purchase.");
+      navigate("/login"); 
       return;
     }
 
