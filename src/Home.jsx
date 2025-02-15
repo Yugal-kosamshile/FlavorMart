@@ -23,7 +23,7 @@ function FoodMenu() {
   <div className="food-card-wrapper">
     {/* Fresh Vegetables */}
     <div className="food-card d-flex align-items-center justify-content-between p-3 m-5">
-      <div className="text-start">
+      <div className="text-start text-menu">
         <h1 className="fw-bold">Fresh Vegetables</h1>
         <p>Explore a variety of fresh and organic vegetables sourced directly from local farms. Enjoy nutritious, pesticide-free produce for a healthier lifestyle.</p>
         <Link to="/veg" className="btn btn-success mt-2">Explore</Link>
@@ -37,7 +37,7 @@ function FoodMenu() {
 
     {/* Quality Meat & Poultry */}
     <div className="food-card d-flex align-items-center justify-content-between p-3 m-5">
-      <div className="text-start">
+      <div className="text-start text-menu">
         <h1 className="fw-bold">Quality Meat & Poultry</h1>
         <p>Get fresh, hygienic, and high-quality meat products delivered to your home. Our selection includes premium cuts of chicken, beef, lamb, and seafood.</p>
         <Link to="/nonVeg" className="btn btn-danger mt-2">Explore</Link>
@@ -51,7 +51,7 @@ function FoodMenu() {
 
     {/* Dairy Products */}
     <div className="food-card d-flex align-items-center justify-content-between p-3 m-5">
-      <div className="text-start">
+      <div className="text-start text-menu">
         <h1 className="fw-bold">Dairy Products</h1>
         <p>Enjoy farm-fresh dairy products, including milk, cheese, yogurt, and butter. Sourced from trusted dairy farms to ensure quality and taste.</p>
         <Link to="/dairy" className="btn btn-primary mt-2">Explore</Link>
