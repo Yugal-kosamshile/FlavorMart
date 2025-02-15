@@ -99,7 +99,11 @@ function NonVeg() {
   const nonVegItemsList = currentItems.map((item, index) => (
     <div className="col-lg-2-5 col-md-4 col-sm-6 mb-4" key={index}>
       <div className="card shadow-lg h-100">
-        <img src={item.image} alt={item.name} className="card-img-top product-img p-4 " style={{ height: "280px", objectFit: "cover" }} />
+        <img src={item.image} 
+        alt={item.name} 
+        className="card-img-top product-img p-4 rounded-pill"
+        style={{ height: "280px",width: "280px", objectFit: "cover" }} 
+        />
         <div className="card-body text-center">
           <h6 className="card-title">{item.name}</h6>
           <p className="card-text text-danger fw-bold">₹{item.price.toFixed(2)}</p>

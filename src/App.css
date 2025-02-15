@@ -78,22 +78,7 @@ body {
 .btn-outline-pink:hover {
   background-color: #e83e8c !important;
   color: white !important;
-}
-/*=========================*/
-@keyframes bounceBag {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-.moving-bag {
-  display: inline-block;
-  font-size: 2rem;
-  animation: bounceBag 1s infinite ease-in-out;
-}
+} 
 /*=========================*/
 @keyframes rollCart {
   0% {
@@ -108,7 +93,6 @@ body {
 }
 .rolling-cart {
   display: inline-block;
-  font-size: 2rem;
   animation: rollCart 1.5s infinite ease-in-out;
 }
 /*=========================*/
@@ -127,73 +111,5 @@ body {
   display: inline-block;
   font-size: 2rem;
   animation: floatBroccoli 1.5s infinite ease-in-out;
-}
-/*=========================*/
-@keyframes launchRocket {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-.moving-rocket {
-  display: inline-block;
-  font-size: 2rem;
-  animation: launchRocket 1s infinite ease-in-out;
-}
-/*=========================*/
-@keyframes pulseTarget {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-.pulsing-target {
-  display: inline-block;
-  font-size: 2rem;
-  animation: pulseTarget 1s infinite ease-in-out;
-}
-/*=========================*/
-@keyframes glowBulb {
-  0% {
-    text-shadow: 0 0 5px #ffd700;
-  }
-  50% {
-    text-shadow: 0 0 15px #ffd700, 0 0 30px #ffec8b;
-  }
-  100% {
-    text-shadow: 0 0 5px #ffd700;
-  }
-}
-.glowing-bulb {
-  display: inline-block;
-  font-size: 2rem;
-  animation: glowBulb 1.5s infinite ease-in-out;
-}
-/*=========================*/
-@keyframes rotatePin {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(10deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-.rotating-pin {
-  display: inline-block;
-  font-size: 2rem;
-  animation: rotatePin 1.5s infinite ease-in-out;
-}
+}   
 /*=========================*/

@@ -1,114 +1,85 @@
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./FoodMenu.css";
 
-function Home() {
-
+function FoodMenu() {
   return (
-    <div className="container mt-5 text-center">
-      <h1 className="display-5 fw-bold text-primary">Welcome to My React Shopping Cart!
-        <span className="rolling-cart">🛒</span>
+    <div className="container mt-5 text-center food-menu-container">
+  
+  <div className="d-flex flex-column align-items-center justify-content-between p-1 mx-5">
+    <h1 className="display-5 fw-bold">
+      <span className="text-primary"> Welcome to </span>
+      <span className="text-success">FlavorMart</span>
+      <span className="text-primary"> - Your One-Stop Grocery Destination!</span>
+      <span className="rolling-cart">🛒</span>
+    </h1>
+    <p className="lead mx-5">
+      Discover a seamless shopping experience with our fully functional cart, built using
+      <strong> React and Redux</strong>. Easily add, remove, and update items in real-time.
+    </p>
+  </div>
 
-      </h1>
-      <p className="lead">
-        Discover a seamless shopping experience with our fully functional cart, built using
-        <strong> React and Redux</strong>. Easily add, remove, and update items in real-time.
-      </p>
-      <hr className="my-4" />
-      <h2 className="fw-bold">
-        <span className="moving-bag">🛍️</span>Start Shopping Now!</h2>
-      <p>
-        Explore our categories, add items to your cart, and enjoy a smooth shopping experience!
-      </p>
-      <div className="row mt-5 mb-5">
-
-        {/* Veg Card */}
-        <div className="col-lg-3 col-md-6 mb-4">
-          <div className="card shadow-lg">
-            <Link to="/veg">
-              <img
-                src="/veg-items/vegetable.jpg"
-                className="card-img-top"
-                alt="Vegetables"
-                style={{ height: "250px", objectFit: "cover" }}
-              />
-            </Link>
-            <div className="card-body">
-              <h5 className="card-title">Fresh Vegetables</h5>
-              <p className="card-text">You can explore a variety of fresh and organic vegetables here.</p>
-              <Link to="/veg" className="btn btn-success">
-              Explore
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Non-Veg Card */}
-        <div className="col-lg-3 col-md-6 mb-4">
-          <div className="card shadow-lg">
-            <Link to="/nonVeg">
-              <img
-                src="/non-veg-items/nonveg.jpg"
-                className="card-img-top"
-                alt="Non-Veg"
-                style={{ height: "250px", objectFit: "cover" }}
-              />
-            </Link>
-            <div className="card-body">
-              <h5 className="card-title">Quality Meat & Poultry</h5>
-              <p className="card-text">Get fresh and hygienic non-veg products delivered to your home.</p>
-              <Link to="/nonVeg" className="btn btn-danger">
-              Explore
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Dairy Card */}
-        <div className="col-lg-3 col-md-6 mb-4">
-          <div className="card shadow-lg">
-            <Link to="/dairy">
-              <img
-                src="/dairy-items/farm.png"
-                className="card-img-top"
-                alt="Dairy"
-                style={{ height: "250px", objectFit: "cover" }}
-              />
-            </Link>
-            <div className="card-body">
-              <h5 className="card-title">Dairy Products</h5>
-              <p className="card-text">Get farm-fresh dairy products like milk, cheese, yogurt, and butter.</p>
-              <Link to="/dairy" className="btn btn-primary">
-              Explore
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Cake Card */}
-        <div className="col-lg-3 col-md-6 mb-4">
-          <div className="card shadow-lg">
-            <Link to="/cakes">
-              <img
-                src="/cake-items/cake.jpg"
-                className="card-img-top"
-                alt="Cakes"
-                style={{ height: "250px", objectFit: "cover" }}
-              />
-            </Link>
-            <div className="card-body">
-              <h5 className="card-title">Delicious Cakes</h5>
-              <p className="card-text">Indulge in a variety of freshly baked cakes, from chocolate to fruit flavors.</p>
-              <Link to="/cakes" className="btn btn-pink">
-                Explore
-              </Link>
-            </div>
-          </div>
-        </div>
-
+  {/* Wrap all food cards inside a dedicated div */}
+  <div className="food-card-wrapper">
+    {/* Fresh Vegetables */}
+    <div className="food-card d-flex align-items-center justify-content-between p-3 m-5">
+      <div className="text-start">
+        <h1 className="fw-bold">Fresh Vegetables</h1>
+        <p>Explore a variety of fresh and organic vegetables sourced directly from local farms. Enjoy nutritious, pesticide-free produce for a healthier lifestyle.</p>
+        <Link to="/veg" className="btn btn-success mt-2">Explore</Link>
       </div>
-
+      <div className="d-flex flex-column align-items-center">
+        <Link to="/veg">
+          <img src="/veg-items/veg1.png" alt="Vegetables" className="food-image-lg food-image" />
+        </Link>
+      </div>
     </div>
+
+    {/* Quality Meat & Poultry */}
+    <div className="food-card d-flex align-items-center justify-content-between p-3 m-5">
+      <div className="text-start">
+        <h1 className="fw-bold">Quality Meat & Poultry</h1>
+        <p>Get fresh, hygienic, and high-quality meat products delivered to your home. Our selection includes premium cuts of chicken, beef, lamb, and seafood.</p>
+        <Link to="/nonVeg" className="btn btn-danger mt-2">Explore</Link>
+      </div>
+      <div className="d-flex flex-column align-items-center">
+        <Link to="/nonVeg">
+          <img src="/non-veg-items/nonveg1.png" alt="Non-Veg" className="food-image-lg food-image" />
+        </Link>
+      </div>
+    </div>
+
+    {/* Dairy Products */}
+    <div className="food-card d-flex align-items-center justify-content-between p-3 m-5">
+      <div className="text-start">
+        <h1 className="fw-bold">Dairy Products</h1>
+        <p>Enjoy farm-fresh dairy products, including milk, cheese, yogurt, and butter. Sourced from trusted dairy farms to ensure quality and taste.</p>
+        <Link to="/dairy" className="btn btn-primary mt-2">Explore</Link>
+      </div>
+      <div className="d-flex flex-column align-items-center">
+        <Link to="/dairy">
+          <img src="/dairy-items/farm.png" alt="Dairy" className="food-image-lg food-image" />
+        </Link>
+      </div>
+    </div>
+
+    {/* Delicious Cakes */}
+    <div className="food-card d-flex align-items-center justify-content-between p-3 m-5">
+      <div className="text-start text-menu">
+        <h1 className="fw-bold">Delicious Cakes</h1>
+        <p>Indulge in a variety of freshly baked cakes, from rich chocolate to fruity flavors. Perfect for birthdays, celebrations, or just a sweet treat!</p>
+        <Link to="/cakes" className="btn btn-warning mt-2">Explore</Link>
+      </div>
+      <div className="d-flex flex-column align-items-center">
+        <Link to="/cakes">
+          <img src="/cake-items/cake.png" alt="Cakes" className="food-image-lg food-image" />
+        </Link>
+      </div>
+    </div>
+  </div>
+</div>
+
   );
 }
 
-export default Home;
+export default FoodMenu;

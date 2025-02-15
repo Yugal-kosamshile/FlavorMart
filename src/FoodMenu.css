@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400&family=Roboto:wght@700&family=Montserrat:wght@700&display=swap');
+
+.food-menu-container .food-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-left: 5px solid;
+    margin: 20px;
+}
+
+.food-menu-container .food-card:nth-of-type(1) {
+    border-left: 5px solid var(--bs-success);
+}
+
+.food-menu-container .food-card:nth-of-type(2) {
+    border-left: 5px solid var(--bs-danger);
+}
+
+.food-menu-container .food-card:nth-of-type(3) {
+    border-left: 5px solid var(--bs-primary);
+}
+
+.food-menu-container .food-card:nth-child(4) {
+    border-left: 5px solid var(--bs-warning);
+}
+
+/* Heading Styles */
+h1 {
+    font-family: 'Open';
+}
+
+/* Section Titles */
+.food-menu-container .food-card h1 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Paragraphs */
+.food-menu-container .food-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    color: var(--bs-secondary);
+}
+
+/* Buttons */
+.food-menu-container .btn {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+/* Images */
+.food-menu-container .food-image {
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.text-menu {
+    width: 50%;
+}

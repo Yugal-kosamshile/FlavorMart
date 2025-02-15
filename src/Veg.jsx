@@ -101,8 +101,8 @@ function Veg() {
         <img
           src={item.image}
           alt={item.name}
-          className="card-img-top product-img p-4"
-          style={{ height: "280px", objectFit: "cover" }}
+          className="card-img-top product-img p-4 rounded-pill"
+          style={{ height: "280px",width: "280px", objectFit: "cover" }}
         />
         <div className="card-body text-center">
           <h6 className="card-title">{item.name}</h6>
@@ -198,7 +198,7 @@ function Veg() {
 
 
       {/* Product Listing */}
-      <div className="row">
+      <div className="row ">
         {currentItems.length > 0 ? (
           vegItemList
         ) : (
