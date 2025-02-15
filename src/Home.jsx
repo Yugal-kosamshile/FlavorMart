@@ -14,9 +14,12 @@ function FoodMenu() {
       <span className="rolling-cart">🛒</span>
     </h1>
     <p className="lead mx-5">
-      Discover a seamless shopping experience with our fully functional cart, built using
-      <strong> React and Redux</strong>. Easily add, remove, and update items in real-time.
-    </p>
+  At <strong>FlavorMart</strong>, we bring you the freshest groceries, premium meats, and dairy products—all in one place! 
+  Enjoy a <strong>hassle-free shopping experience</strong> with our carefully curated selection of high-quality ingredients, 
+  sourced directly from <strong>trusted farms and suppliers</strong>. Whether you're looking for <strong>organic vegetables, 
+  farm-fresh dairy or  delicious baked goods </strong>, we've got everything you need to make every meal special.
+</p>
+
   </div>
 
   {/* Wrap all food cards inside a dedicated div */}
@@ -25,7 +28,8 @@ function FoodMenu() {
     <div className="food-card d-flex align-items-center justify-content-between p-3 m-5">
       <div className="text-start text-menu">
         <h1 className="fw-bold">Fresh Vegetables</h1>
-        <p>Explore a variety of fresh and organic vegetables sourced directly from local farms. Enjoy nutritious, pesticide-free produce for a healthier lifestyle.</p>
+        <p>Explore a variety of fresh and organic vegetables sourced directly from local farms. 
+          Enjoy nutritious, pesticide-free produce for a healthier lifestyle.</p>
         <Link to="/veg" className="btn btn-success mt-2">Explore</Link>
       </div>
       <div className="d-flex flex-column align-items-center">
@@ -39,7 +43,8 @@ function FoodMenu() {
     <div className="food-card d-flex align-items-center justify-content-between p-3 m-5">
       <div className="text-start text-menu">
         <h1 className="fw-bold">Quality Meat & Poultry</h1>
-        <p>Get fresh, hygienic, and high-quality meat products delivered to your home. Our selection includes premium cuts of chicken, beef, lamb, and seafood.</p>
+        <p>Get fresh, hygienic, and high-quality meat products delivered to your home. Our selection 
+          includes premium cuts of chicken, beef, lamb, and seafood.</p>
         <Link to="/nonVeg" className="btn btn-danger mt-2">Explore</Link>
       </div>
       <div className="d-flex flex-column align-items-center">
@@ -53,7 +58,8 @@ function FoodMenu() {
     <div className="food-card d-flex align-items-center justify-content-between p-3 m-5">
       <div className="text-start text-menu">
         <h1 className="fw-bold">Dairy Products</h1>
-        <p>Enjoy farm-fresh dairy products, including milk, cheese, yogurt, and butter. Sourced from trusted dairy farms to ensure quality and taste.</p>
+        <p>Enjoy farm-fresh dairy products, including milk, cheese, yogurt, and butter. Sourced from 
+          trusted dairy farms to ensure quality and taste.</p>
         <Link to="/dairy" className="btn btn-primary mt-2">Explore</Link>
       </div>
       <div className="d-flex flex-column align-items-center">
@@ -67,7 +73,8 @@ function FoodMenu() {
     <div className="food-card d-flex align-items-center justify-content-between p-3 m-5">
       <div className="text-start text-menu">
         <h1 className="fw-bold">Delicious Cakes</h1>
-        <p>Indulge in a variety of freshly baked cakes, from rich chocolate to fruity flavors. Perfect for birthdays, celebrations, or just a sweet treat!</p>
+        <p>Indulge in a variety of freshly baked cakes, from rich chocolate to fruity flavors. Perfect for 
+          birthdays, celebrations, or just a sweet treat!</p>
         <Link to="/cakes" className="btn btn-warning mt-2">Explore</Link>
       </div>
       <div className="d-flex flex-column align-items-center">
