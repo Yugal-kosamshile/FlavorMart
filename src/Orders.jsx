@@ -8,10 +8,10 @@ function Orders() {
       <div className="card-body">
         {/* Order Details */}
         <h5 className="card-title fw-bold">
-          Order Date: {order.date} | Time: {order.hour}:{order.min}:{order.sec}
+          🗓️ Order Date: {order.date} | ⏰ Time: {order.hour}:{order.min}:{order.sec}
         </h5>
         <h6 className="card-subtitle mb-3 text-muted">
-          Total Amount: <span className="fw-bold text-success">₹{order.totalAmount.toFixed(2)}</span>
+          💰 Total Amount: <span className="fw-bold text-success">₹{order.totalAmount.toFixed(2)}</span>
         </h6>
 
         {/* Table for Order Items */}

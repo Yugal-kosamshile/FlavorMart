@@ -109,11 +109,31 @@ function Cakes() {
     ));
 
     return (
-        <div className="container mt-4">
-            <h1 className="text-center text-pink fw-bold mb-4">Delicious Cakes
-                <span className="floating">🍰</span>
-            </h1>
-
+        <div className="container mt-4 position-relative">
+            {/* Search Bar - Positioned at the Top Right */}
+            <div className="position-absolute top-0 end-0 mt-2 me-3" style={{ maxWidth: "250px" }}>
+                <div className="input-group">
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Search for cakes..."
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                    />
+                    <span className="input-group-text text-pink">
+                        <i className="fa-solid fa-search"></i>
+                    </span>
+                </div>
+            </div>
+    
+            {/* Centered Heading */}
+            <div className="d-flex flex-column align-items-center">
+                <h1 className="text-pink fw-bold mb-4">
+                    Delicious Cakes <span className="floating">🍰</span>
+                </h1>
+            </div>
+    
+            {/* Carousel Section */}
             <div className="carousel-container mb-4">
                 <Slider {...settings}>
                     {images.map((image, index) => (
@@ -127,62 +147,34 @@ function Cakes() {
                     ))}
                 </Slider>
             </div>
-
+    
+            {/* Filter Section */}
             <div className="card p-3 mb-4 shadow-lg">
                 <h5 className="text-center text-secondary">Filter by Price Range</h5>
-
+    
                 <div className="d-flex flex-wrap align-items-center justify-content-center gap-3">
-                    <div className="input-group" style={{ maxWidth: "250px" }}>
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="Search for cakes..."
-                            value={searchTerm}
-                            onChange={handleSearchChange}
-                        />
-                        <span className="input-group-text text-pink">
-                            <i className="fa-solid fa-search"></i>
-                        </span>
-                    </div>
-
-                    <div className="form-check">
-                        <input
-                            type="checkbox"
-                            onChange={() => applyFilter("low")}
-                            className="form-check-input custom-checkbox"
-                            id="low"
-                        />
-                        <label className="form-check-label fw-bold text-dark" htmlFor="low">
-                            ₹4000 - ₹7000
-                        </label>
-                    </div>
-
-                    <div className="form-check">
-                        <input
-                            type="checkbox"
-                            onChange={() => applyFilter("mid")}
-                            className="form-check-input custom-checkbox"
-                            id="mid"
-                        />
-                        <label className="form-check-label fw-bold text-dark" htmlFor="mid">
-                            ₹7001 - ₹9000
-                        </label>
-                    </div>
-
-                    <div className="form-check">
-                        <input
-                            type="checkbox"
-                            onChange={() => applyFilter("high")}
-                            className="form-check-input custom-checkbox"
-                            id="high"
-                        />
-                        <label className="form-check-label fw-bold text-dark" htmlFor="high">
-                            ₹9001 - ₹11000
-                        </label>
-                    </div>
+                    {/* Price Range Checkboxes */}
+                    {[
+                        { id: "low", label: "₹4000 - ₹7000", value: "low" },
+                        { id: "mid", label: "₹7001 - ₹9000", value: "mid" },
+                        { id: "high", label: "₹9001 - ₹11000", value: "high" }
+                    ].map(({ id, label, value }) => (
+                        <div className="form-check" key={id}>
+                            <input
+                                type="checkbox"
+                                onChange={() => applyFilter(value)}
+                                className="form-check-input custom-checkbox"
+                                id={id}
+                            />
+                            <label className="form-check-label fw-bold text-dark" htmlFor={id}>
+                                {label}
+                            </label>
+                        </div>
+                    ))}
                 </div>
             </div>
-
+    
+            {/* Product Listing */}
             <div className="row">
                 {currentItems.length > 0 ? (
                     cakeItemList
@@ -190,10 +182,12 @@ function Cakes() {
                     <h4 className="text-center text-danger">No items found!</h4>
                 )}
             </div>
-
+    
+            {/* Pagination */}
             {pagination}
         </div>
     );
+    
 }
 
 export default Cakes;

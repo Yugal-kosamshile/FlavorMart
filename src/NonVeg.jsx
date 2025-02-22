@@ -116,11 +116,31 @@ function NonVeg() {
   ))
 
   return (
-    <div className="container mt-4">
-      <h1 className="text-center text-danger fw-bold mb-4">Delicious Non-Veg Items
-        <span className="floating">🍗</span>
-      </h1>
-
+    <div className="container mt-4 position-relative">
+      {/* Search Bar - Positioned at the Top Right */}
+      <div className="position-absolute top-0 end-0 mt-2 me-3" style={{ maxWidth: "250px" }}>
+        <div className="input-group">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search for Non-Veg Items..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          <span className="input-group-text">
+            <i className="fa-solid fa-search"></i>
+          </span>
+        </div>
+      </div>
+  
+      {/* Centered Heading */}
+      <div className="d-flex flex-column align-items-center">
+        <h1 className="text-danger fw-bold mb-4">
+          Delicious Non-Veg Items <span className="floating">🍗</span>
+        </h1>
+      </div>
+  
+      {/* Carousel */}
       <div className="carousel-container mb-4">
         <Slider {...settings}>
           {images.map((image, index) => (
@@ -134,27 +154,12 @@ function NonVeg() {
           ))}
         </Slider>
       </div>
-
+  
+      {/* Filters */}
       <div className="card p-3 mb-4 shadow-lg">
         <h5 className="text-center text-secondary">Filter by Price Range</h5>
-
-        {/* Flex container to align search bar & checkboxes in one row */}
+  
         <div className="d-flex flex-wrap align-items-center justify-content-center gap-3">
-
-          {/* Search Bar */}
-          <div className="input-group" style={{ maxWidth: "250px" }}>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search for vegetables..."
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-            <span className="input-group-text">
-              <i className="fa-solid fa-search"></i>
-            </span>
-          </div>
-
           {/* Checkbox Filters */}
           <div className="form-check">
             <input
@@ -167,7 +172,7 @@ function NonVeg() {
               ₹0 - ₹400
             </label>
           </div>
-
+  
           <div className="form-check">
             <input
               type="checkbox"
@@ -179,7 +184,7 @@ function NonVeg() {
               ₹401 - ₹800
             </label>
           </div>
-
+  
           <div className="form-check">
             <input
               type="checkbox"
@@ -191,10 +196,9 @@ function NonVeg() {
               ₹801 - ₹1200
             </label>
           </div>
-
         </div>
       </div>
-
+  
       {/* Product Listing */}
       <div className="row">
         {currentItems.length > 0 ? (
@@ -203,11 +207,12 @@ function NonVeg() {
           <h4 className="text-center text-danger">No items found!</h4>
         )}
       </div>
-
+  
       {/* Pagination */}
       {pagination}
     </div>
   );
+  
 }
 
 export default NonVeg;

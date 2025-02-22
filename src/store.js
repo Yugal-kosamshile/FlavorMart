@@ -198,27 +198,45 @@ const purchaseDetailsSlice = createSlice({
 });
 
 
-// Auth Slice
+
+// Fetch user details from localStorage
+const storedUser = JSON.parse(localStorage.getItem("user")) || null;
+
 const authSlice = createSlice({
     name: "auth",
     initialState: {
-        isAuthenticated: localStorage.getItem("username") ? true : false,
-        user: localStorage.getItem("username") || "",
+        isAuthenticated: storedUser ? true : false,
+        user: storedUser,
     },
     reducers: {
-        login: (state, action) => {
-            state.isAuthenticated = true;
-            state.user = action.payload;
-            localStorage.setItem("username", action.payload);
+        register: (state, action) => {
+            const { name, email, password } = action.payload;
+            const userData = { name, email, password };
+
+            localStorage.setItem("user", JSON.stringify(userData)); // Store user details
+            state.isAuthenticated = false; // Registration doesn't log in automatically
+            state.user = null;
         },
+        login: (state, action) => {
+            const { username, password } = action.payload; // Change from email to username
+            const storedUser = JSON.parse(localStorage.getItem("user"));
+        
+            if (storedUser && storedUser.username === username && storedUser.password === password) {
+                state.isAuthenticated = true;
+                state.user = storedUser;
+            } else {
+                state.isAuthenticated = false;
+                state.user = null;
+            }
+        },        
         logout: (state) => {
             state.isAuthenticated = false;
-            state.user = "";
-            localStorage.removeItem("username");
+            state.user = null;
+            localStorage.removeItem("user");
             localStorage.removeItem("cart");
             localStorage.removeItem("orderDetails");
         },
-    }
+    },
 });
 
 // Store Configuration
@@ -234,4 +252,4 @@ const Store = configureStore({
 export default Store;
 export const { addToCart, increament, decreament, remove, clearCart } = cartSlice.actions;
 export const { addToOrders } = purchaseDetailsSlice.actions;
-export const { login, logout } = authSlice.actions;
+export const { register, login, logout } = authSlice.actions;

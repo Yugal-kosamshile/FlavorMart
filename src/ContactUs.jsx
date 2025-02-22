@@ -18,7 +18,7 @@ function ContactUs() {
             <h4 className="text-uppercase">Phone Number</h4>
             <p>+91 123-456-7890</p>
             <h4 className="text-uppercase">Email Address</h4>
-            <p>support@flavormart.com</p>
+            <p>support@foodmart.com</p>
 
           </div>
 

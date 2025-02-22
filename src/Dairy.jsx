@@ -108,10 +108,30 @@ function Dairy() {
   };
 
   return (
-    <div className="container mt-4">
-      <h1 className="text-center text-primary fw-bold mb-4">Fresh Dairy Products
-        <span className="floating">🥛</span></h1>
-
+    <div className="container mt-4 position-relative">
+      {/* Search Bar - Positioned at the Top Right */}
+      <div className="position-absolute top-0 end-0 mt-2 me-3" style={{ maxWidth: "250px" }}>
+        <div className="input-group">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search for dairy products..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          <span className="input-group-text">
+            <i className="fa-solid fa-search"></i>
+          </span>
+        </div>
+      </div>
+  
+      {/* Centered Heading */}
+      <div className="d-flex flex-column align-items-center">
+        <h1 className="text-primary fw-bold mb-4">
+          Fresh Dairy Products <span className="floating">🥛</span>
+        </h1>
+      </div>
+  
       {/* Carousel Section */}
       <div className="carousel-container mb-4">
         <Slider {...settings}>
@@ -122,32 +142,17 @@ function Dairy() {
           ))}
         </Slider>
       </div>
-
-      {/* Search Bar & Filters (Aligned in one line) */}
+  
+      {/* Search Bar & Filters */}
       <div className="card p-3 mb-4 shadow-lg">
-        <h5 className="text-center text-secondary">Search & Filter by Brand</h5>
-
+        <h5 className="text-center text-secondary">Filter by Brand</h5>
+  
         <div className="d-flex flex-wrap align-items-center justify-content-center gap-3">
-
-          {/* Search Bar */}
-          <div className="input-group" style={{ maxWidth: "250px" }}>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search for dairy products..."
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-            <span className="input-group-text">
-              <i className="fa-solid fa-search"></i>
-            </span>
-          </div>
-
           {/* Checkbox Filters */}
           {checkbox}
         </div>
       </div>
-
+  
       {/* Product Listing */}
       <div className="row">
         {currentItems.length > 0 ? (
@@ -156,7 +161,7 @@ function Dairy() {
           <h4 className="text-center text-danger">No items found!</h4>
         )}
       </div>
-
+  
       {/* Pagination */}
       {filteredItems.length > itemsPerPage && (
         <div className="d-flex justify-content-center mt-4 mb-3">
@@ -167,7 +172,7 @@ function Dairy() {
           >
             ◀ Previous
           </button>
-
+  
           <div className="btn-group">
             {Array.from({ length: totalPages }, (_, index) => (
               <button
@@ -179,6 +184,7 @@ function Dairy() {
               </button>
             ))}
           </div>
+  
           <button
             className="btn btn-outline-primary mx-2"
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
@@ -190,6 +196,7 @@ function Dairy() {
       )}
     </div>
   );
+  
 }
 
 export default Dairy;

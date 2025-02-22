@@ -18,6 +18,7 @@ import SignIn from "./SignIn.jsx";
 import "./App.css";
 import MyFooter from "./MyFooter.jsx";
 import { Dropdown } from "bootstrap";
+import Register from "./RegForm.jsx";
 
 
 function App() {
@@ -59,8 +60,8 @@ function App() {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container">
             {/* Brand Name */}
-            <Link to="/home" className="navbar-brand fw-bold fst-italic">
-              FlavorMart
+            <Link to="/home" className="navbar-brand fw-bold fst-italic" style={{ fontSize: "28px" }}>
+              FoodMart...
               <img
                 src="/basket.gif"
                 alt="Cart Icon"
@@ -92,7 +93,7 @@ function App() {
                 </li>
                 <li className="nav-item">
                   <Link to="/veg" className="nav-link">
-                    <i className="fa-solid fa-carrot"></i> Veggie
+                    <i className="fa-solid fa-carrot"></i> Veggies
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -141,7 +142,7 @@ function App() {
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      <i className="fa-solid fa-user"></i> {user}
+                      <i className="fa-solid fa-user"></i> {user?.username}
                     </button>
                     <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
 
@@ -179,6 +180,7 @@ function App() {
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/login" element={<SignIn />} />
+          <Route path="/regForm" element={<Register />} />
         </Routes>
 
         <MyFooter />
