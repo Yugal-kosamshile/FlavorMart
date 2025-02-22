@@ -188,7 +188,7 @@ function Home() {
         <img src="/market/flour.jpg" className="card-img-top img-fluid market-img" alt="Florence Food Market" />
         <div className="card-body">
           <h5 className="card-title">Florence Food Market</h5>
-          <p className="card-text">123 Main Street, Florence</p>
+          <p className="card-text"><strong>Address : </strong> 123 Main Street, Florence</p>
         </div>
       </div>
     </div>
@@ -199,7 +199,7 @@ function Home() {
         <img src="/market/wetmarket.JPG" className="card-img-top img-fluid market-img" alt="The Wet Market Chicken Stall" />
         <div className="card-body">
           <h5 className="card-title">The Wet Market Chicken Stall</h5>
-          <p className="card-text">45 Poultry Lane, Downtown</p>
+          <p className="card-text"><strong>Address : </strong> 45 Poultry Lane, Downtown</p>
         </div>
       </div>
     </div>
@@ -210,7 +210,7 @@ function Home() {
         <img src="/market/fishmarket.jpg" className="card-img-top img-fluid market-img" alt="Aqua The Fish Market" />
         <div className="card-body">
           <h5 className="card-title">Aqua The Fish Market</h5>
-          <p className="card-text">78 Ocean Drive, Seaside</p>
+          <p className="card-text"><strong>Address : </strong> 78 Ocean Drive, Seaside</p>
         </div>
       </div>
     </div>
