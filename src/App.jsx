@@ -15,10 +15,10 @@ import ContactUs from "./ContactUs";
 import Dairy from "./Dairy.jsx";
 import NotFound from "./NotFound.jsx";
 import SignIn from "./SignIn.jsx";
-import RegForm from "./RegForm.jsx";
 import "./App.css";
 import MyFooter from "./MyFooter.jsx";
 import { Dropdown } from "bootstrap";
+import Registration from "./Registration.jsx";
 
 
 function App() {
@@ -180,7 +180,7 @@ function App() {
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/login" element={<SignIn />} />
-          <Route path="/regForm" element={<RegForm/>}/>
+          <Route path="/registration" element={<Registration />}/>
         </Routes>
 
         <MyFooter />

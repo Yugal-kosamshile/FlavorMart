@@ -88,7 +88,7 @@ function SignIn() {
           <div className="text-center">
             <p className="mb-0">
               Don't have an account?{" "}
-              <a href="/regForm" className="text-primary fw-bold">
+              <a href="/registration" className="text-primary fw-bold">
                 Register
               </a>
             </p>

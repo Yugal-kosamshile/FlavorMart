@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-function RegForm() {
+function Registration() {
   const usernameRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
@@ -69,4 +69,4 @@ function RegForm() {
   );
 }
 
-export default RegForm;
+export default Registration;
