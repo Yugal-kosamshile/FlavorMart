@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Registration() {
   const usernameRef = useRef(null);
@@ -81,9 +81,9 @@ function Registration() {
           <div className="text-center">
             <p className="mb-0">
               Already have an account?{" "}
-              <a href="/login" className="text-primary fw-bold">
+              <Link href="/login" className="text-primary fw-bold">
                 Sign In
-              </a>
+              </Link>
             </p>
           </div>
         </form>
