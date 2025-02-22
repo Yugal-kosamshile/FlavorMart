@@ -19,6 +19,7 @@ import "./App.css";
 import MyFooter from "./MyFooter.jsx";
 import { Dropdown } from "bootstrap";
 import Register from "./RegForm.jsx";
+import RegForm from "./RegForm.jsx";
 
 
 function App() {
@@ -180,7 +181,7 @@ function App() {
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/login" element={<SignIn />} />
-          <Route path="/regForm" element={<Register />} />
+          <Route path="/regForm" element={<RegForm />} />
         </Routes>
 
         <MyFooter />
