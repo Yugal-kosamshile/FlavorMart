@@ -1,59 +1,71 @@
-import { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Registration() {
-  const usernameRef = useRef();
-  const passwordRef = useRef();
-  const confirmPasswordRef = useRef();
-  const navigate = useNavigate(); // Hook for navigation
+  const usernameRef = useRef(null);
+  const passwordRef = useRef(null);
+  const confirmPasswordRef = useRef(null);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleRegister = () => {
+    const username = usernameRef.current.value.trim();
+    const password = passwordRef.current.value.trim();
+    const confirmPassword = confirmPasswordRef.current.value.trim();
 
-    // Validate password match
-    if (passwordRef.current.value !== confirmPasswordRef.current.value) {
-      alert("Passwords do not match!");
+    if (!username || !password || !confirmPassword) {
+      setError("All fields are required.");
       return;
     }
 
-    const userData = {
-      username: usernameRef.current.value.trim(),
-      password: passwordRef.current.value.trim(),
-    };
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
 
-    // Save to local storage
-    localStorage.setItem("user", JSON.stringify(userData));
+    const newUser = { username, password };
+    localStorage.setItem("user", JSON.stringify(newUser));
 
-    alert("Register Success!"); // Show success alert
-    navigate("/login"); // Redirect to login page
-
-    event.target.reset(); // Clear the form
+    navigate("/login"); // Redirect to login after successful registration
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center mt-5 mb-5">
-      <div className="card p-4 shadow-lg" style={{ maxWidth: "400px", width: "100%" }}>
-        <h2 className="text-center mb-4">Register</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3">
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      <div className="card shadow-lg p-4" style={{ width: "400px", borderRadius: "10px" }}>
+        <h2 className="text-center text-primary fw-bold">Create an Account</h2>
+        <p className="text-center text-muted">Sign up to start shopping</p>
+
+        {error && <p className="text-danger text-center">{error}</p>}
+
+        <form>
+          <div className="mb-3 input-group">
+            <span className="input-group-text bg-light">
+              <i className="fas fa-user text-primary"></i>
+            </span>
             <input
               type="text"
               className="form-control"
-              placeholder="Username"
+              placeholder="Enter Username"
               ref={usernameRef}
               required
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 input-group">
+            <span className="input-group-text bg-light">
+              <i className="fas fa-lock text-primary"></i>
+            </span>
             <input
               type="password"
               className="form-control"
-              placeholder="Password"
+              placeholder="Enter Password"
               ref={passwordRef}
               required
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 input-group">
+            <span className="input-group-text bg-light">
+              <i className="fas fa-lock text-primary"></i>
+            </span>
             <input
               type="password"
               className="form-control"
@@ -62,7 +74,18 @@ function Registration() {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary w-100">Register</button>
+          <button type="button" className="btn btn-primary w-100 fw-bold" onClick={handleRegister}>
+            Register
+          </button>
+          <div className="text-center my-3 text-muted">OR</div>
+          <div className="text-center">
+            <p className="mb-0">
+              Already have an account?{" "}
+              <a href="/login" className="text-primary fw-bold">
+                Sign In
+              </a>
+            </p>
+          </div>
         </form>
       </div>
     </div>

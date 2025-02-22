@@ -180,7 +180,7 @@ function App() {
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/login" element={<SignIn />} />
-          <Route path="/registration" element={<Registration />}/>
+          <Route path="/registration" element={<Registration />} />
         </Routes>
 
         <MyFooter />

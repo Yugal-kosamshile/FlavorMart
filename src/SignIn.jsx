@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "./store.js";
 
 function SignIn() {
@@ -88,9 +88,9 @@ function SignIn() {
           <div className="text-center">
             <p className="mb-0">
               Don't have an account?{" "}
-              <a href="/registration" className="text-primary fw-bold">
+              <Link to="/registration" className="text-primary fw-bold">
                 Register
-              </a>
+              </Link>
             </p>
           </div>
         </form>
