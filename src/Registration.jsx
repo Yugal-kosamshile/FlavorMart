@@ -81,7 +81,7 @@ function Registration() {
           <div className="text-center">
             <p className="mb-0">
               Already have an account?{" "}
-              <Link href="/login" className="text-primary fw-bold">
+              <Link to="/login" className="text-primary fw-bold">
                 Sign In
               </Link>
             </p>
